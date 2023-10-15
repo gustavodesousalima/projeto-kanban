@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro | Kanban</title>
+    <link
+      rel="shortcut icon"
+      href="./assets/logoTipos/favicon.svg"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="./scripts/interacaoComInputs.js" defer></script>
+    <script src="./scripts/efeitoDeTransicao.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Poppins&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <form class="formLogin" action="" id="formularioLogin">
+      <fieldset>
+        <h2>Faça Login</h2>
+        <div class="inputs">
+          <img
+            class="imgDentroDoInput"
+            src="./assets/iconesInputs/user.svg"
+            alt=""
+          />
+          <input
+            type="text"
+            name="nome"
+            id="nome"
+            placeholder="Nome de Usuário"
+            required
+          />
+        </div>
+        <div class="inputs">
+          <img
+            class="imgDentroDoInput"
+            src="./assets/iconesInputs/password.svg"
+            alt=""
+          />
+          <input
+            type="password"
+            name="senha"
+            id="senha"
+            placeholder="Sua Senha"
+            required
+          />
+          <button type="button" class="verSenha">
+            <img src="./assets/iconesInputs/seePassword.svg" alt="" />
+          </button>
+        </div>
+
+        <button>ENTRAR</button>
+
+        <hr />
+
+        <div class="alterarCadastrarELogin">
+          <button class="botaoTransicao" type="button" id="passarParaCadastrar">
+            Cadastrar
+          </button>
+          <button class="botaoDesativado" type="button" disabled>Login</button>
+        </div>
+      </fieldset>
+    </form>
+
+    <div id="logoTitulo">
+      <div id="contentLogoTitulo">
+        <span><img src="./assets/logoTipos/kanbanHub.svg" alt="" />Kanban</span>
+        <h1>Cadastre-se na nossa plataforma</h1>
+      </div>
+    </div>
+    <form class="formCadastro" action="" id="formularioCadastro">
+      <fieldset>
+        <h2>Crie Sua Conta</h2>
+        <div class="inputs">
+          <img
+            class="imgDentroDoInput"
+            src="./assets/iconesInputs/user.svg"
+            alt=""
+          />
+          <input
+            type="text"
+            name="cadastroNome"
+            id="cadastroNome"
+            placeholder="Nome de Usuário"
+            required
+          />
+        </div>
+        <div class="inputs">
+          <img
+            class="imgDentroDoInput"
+            src="./assets/iconesInputs/password.svg"
+            alt=""
+          />
+          <input
+            type="password"
+            name="cadastroSenha"
+            id="cadastroSenha"
+            placeholder="Sua Senha"
+            required
+          />
+          <button type="button" class="verSenha">
+            <img src="./assets/iconesInputs/seePassword.svg" alt="" />
+          </button>
+        </div>
+
+        <div class="inputs">
+          <img
+            class="imgDentroDoInput"
+            src="./assets/iconesInputs/password.svg"
+            alt=""
+          />
+          <input
+            type="password"
+            name="confirmarSenha"
+            id="confirmarSenha"
+            placeholder="Confirme Sua Senha"
+            required
+          />
+          <button type="button" class="verSenha">
+            <img src="./assets/iconesInputs/seePassword.svg" alt="" />
+          </button>
+        </div>
+
+        <button>CADASTRAR</button>
+
+        <hr />
+
+        <div class="alterarCadastrarELogin">
+          <button class="botaoDesativado" type="button" disabled>
+            Cadastro
+          </button>
+          <button class="botaoTransicao" type="button" id="passarParaLogin">
+            Login
+          </button>
+        </div>
+      </fieldset>
+    </form>
+  </body>
+</html>
