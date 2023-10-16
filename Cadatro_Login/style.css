@@ -1,0 +1,404 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  display: flex;
+  font-family: "Poppins", sans-serif;
+  background-color: rgb(123, 255, 178);
+  overflow-x: hidden;
+}
+
+.animacaoLoading {
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.animacaoLoading::after {
+  content: "Kanban";
+  font-family: "Montserrat", sans-serif;
+  color: rgb(223, 220, 216);
+  text-shadow: -0.8rem -0.2rem 0 #000, 0.2rem -0.2rem 0 #000,
+    -0.2rem 0.2rem 0 #000, 0.2rem 0.2rem 0 #000;
+  letter-spacing: 0.2rem;
+  font-size: 8rem;
+  animation: animacaoLoading 3s ease-in-out infinite;
+}
+
+.animacaoLoading::before {
+  content: "";
+  background-image: url(./assets/logoTipos/kanbanHub.svg);
+  width: 8rem;
+  height: 8rem;
+  background-size: cover;
+  animation: animacaoLoading 3s ease-in-out infinite;
+}
+
+@keyframes animacaoLoading {
+  0% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(20%);
+  }
+  100% {
+    transform: translate(0%);
+  }
+}
+
+@keyframes animacaoSurgir {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+#logoTitulo {
+  height: 100vh;
+  width: 60vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  z-index: 2;
+}
+
+.logoTituloAtivo {
+  transform: translateX(66.6%);
+  transition: transform 1.5s ease-in-out;
+}
+
+.logoTituloDesativado {
+  transform: translateX(-66.6%);
+  transition: transform 1.5s ease-in-out;
+}
+
+#contentLogoTitulo {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  max-width: 80%;
+  padding: 0 10rem;
+  transition: opacity 1.5s;
+  animation: animacaoSurgir 1.5s ease-in-out;
+  animation-delay: 1.5s;
+}
+
+#contentLogoTitulo > span img {
+  width: 10rem;
+}
+
+span {
+  font-size: 8rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-family: "Montserrat", sans-serif;
+  color: rgb(223, 220, 216);
+  text-shadow: -0.8rem -0.2rem 0 #000, 0.2rem -0.2rem 0 #000,
+    -0.2rem 0.2rem 0 #000, 0.2rem 0.2rem 0 #000;
+  letter-spacing: 0.2rem;
+}
+
+#contentLogoTitulo > h1 {
+  color: rgb(0, 0, 0);
+  text-shadow: 0.1rem 0.5rem rgb(123, 255, 178);
+  font-size: 6rem;
+  position: relative;
+  transition: opacity 1.5s;
+}
+
+#contentLogoTitulo > h1::after {
+  content: "";
+  position: absolute;
+  background-color: white;
+  width: 0%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+form {
+  height: 100vh;
+  width: 40vw;
+  background-color: rgb(123, 255, 178);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+  z-index: -1;
+  position: absolute;
+}
+
+.formAtivo {
+  position: static;
+  z-index: 1;
+}
+
+.formCadastroExtra {
+  left: 60vw;
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  justify-content: center;
+  border-radius: 0.5rem;
+  gap: 1.5rem;
+  min-width: 70%;
+  animation: animacaoSurgir 1.5s ease-in-out;
+  animation-delay: 1.5s;
+}
+
+h2 {
+  font-size: 3rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+}
+
+input {
+  height: 4rem;
+  padding: 0 5.5rem 0 4rem;
+  border-radius: 0.5rem;
+  border: none;
+  position: relative;
+  width: 100%;
+  font-size: 2rem;
+}
+
+.inputs {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.imgDentroDoInput {
+  width: 2rem;
+  position: absolute;
+  z-index: 1;
+  margin-left: 1rem;
+}
+
+.verSenha {
+  width: 2.5rem;
+  height: 90%;
+  position: absolute;
+  z-index: 1;
+  left: 90%;
+}
+
+.verSenha img {
+  width: 100%;
+  height: 100%;
+}
+
+input:focus {
+  outline-color: #00ff80;
+  outline-style: solid;
+  outline-width: 0.25rem;
+}
+
+hr {
+  border: 0.1rem solid black;
+}
+
+fieldset button {
+  font-size: 2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+fieldset > button {
+  height: 5.4rem;
+  background-color: #00ff80;
+  color: black;
+  transition: 0.2s ease-in-out;
+  font-weight: 800;
+}
+
+fieldset > button:hover {
+  background-color: black;
+  color: #00ff80;
+}
+
+.alterarCadastrarELogin {
+  display: flex;
+  justify-content: space-between;
+}
+
+.alterarCadastrarELogin > button {
+  width: 49%;
+  height: 4.2rem;
+  font-weight: 400;
+  transition: 0.2s ease-in-out;
+}
+
+.botaoDesativado {
+  background: black;
+  color: white;
+  cursor: auto;
+}
+
+.botaoTransicao:hover {
+  background: white;
+  color: #00ff80;
+}
+
+@media (max-width: 1800px) {
+  #contentLogoTitulo > h1 {
+    font-size: 5rem;
+  }
+}
+
+@media (max-width: 1350px) {
+  :root {
+    font-size: 50%;
+  }
+
+  #contentLogoTitulo {
+    padding: 0;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 1100px) {
+  :root {
+    font-size: 40%;
+  }
+}
+
+@media (max-width: 900px) {
+  :root {
+    font-size: 57.5%;
+  }
+
+  .animacaoLoading {
+    height: 130vh;
+    align-items: self-start;
+    padding-top: 25%;
+  }
+
+  body {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "logoTitulo";
+  }
+
+  .logoTituloAtivo {
+    transform: translateX(0);
+    transition: transform 0;
+  }
+
+  .logoTituloDesativado {
+    transform: translateX(0);
+    transition: transform 0;
+  }
+
+  #logoTitulo {
+    height: 60vh;
+    width: 100vw;
+    grid-area: logoTitulo;
+  }
+
+  #contentLogoTitulo {
+    max-width: 60%;
+  }
+
+  form {
+    height: 70vh;
+    width: 100vw;
+    opacity: 0;
+    transition: opacity 1.5s;
+  }
+
+  .efeitoFormMobile {
+    opacity: 1;
+  }
+
+  fieldset {
+    min-width: 60%;
+  }
+}
+
+@media (max-width: 740px) {
+  :root {
+    font-size: 50%;
+  }
+
+  .animacaoLoading {
+    padding-top: 32%;
+  }
+
+  #contentLogoTitulo > h1 {
+    font-size: 4rem;
+  }
+
+  span {
+    font-size: 7rem;
+  }
+
+  #contentLogoTitulo > span img {
+    width: 9rem;
+  }
+}
+
+@media (max-width: 600px) {
+  #logoTitulo {
+    height: 50vh;
+  }
+
+  .animacaoLoading {
+    padding-top: 40%;
+  }
+
+  form {
+    height: 40rem;
+  }
+
+  #contentLogoTitulo {
+    max-width: 90%;
+    padding-right: 2.5rem;
+  }
+
+  fieldset {
+    min-width: 90%;
+  }
+  span {
+    font-size: 6rem;
+  }
+
+  #contentLogoTitulo > span img {
+    width: 8rem;
+  }
+
+  #contentLogoTitulo > h1 {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .animacaoLoading {
+    padding-top: 50%;
+  }
+ } 
