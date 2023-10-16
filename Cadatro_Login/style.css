@@ -15,6 +15,50 @@ body {
   overflow-x: hidden;
 }
 
+.animacaoLoading {
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.animacaoLoading::after {
+  content: 'Kanban';
+  font-family: "Montserrat", sans-serif;
+  color: rgb(223, 220, 216);
+  text-shadow: -0.8rem -0.2rem 0 #000, 0.2rem -0.2rem 0 #000,
+    -0.2rem 0.2rem 0 #000, 0.2rem 0.2rem 0 #000;
+  letter-spacing: 0.2rem;
+  font-size: 8rem;
+  animation: animacaoLoading 3s ease-in-out infinite;
+}
+
+.animacaoLoading::before {
+  content: '';
+  background-image: url(./assets/logoTipos/kanbanHub.svg);
+  width: 8rem;
+  height: 8rem;
+  background-size: cover;
+  animation: animacaoLoading 3s ease-in-out infinite;
+}
+
+@keyframes animacaoLoading {
+  0% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(20%);
+  }
+  100% {
+    transform: translate(0%);
+  }
+}
+
 #logoTitulo {
   height: 100vh;
   width: 60vw;
@@ -236,6 +280,12 @@ fieldset > button:hover {
   :root {
     font-size: 57.5%;
   }
+
+  .animacaoLoading {
+  height: 130vh;
+  align-items: self-start;
+  padding-top: 50%;
+}
 
   body {
     display: grid;
