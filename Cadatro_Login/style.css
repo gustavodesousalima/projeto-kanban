@@ -28,7 +28,7 @@ body {
 }
 
 .animacaoLoading::after {
-  content: 'Kanban';
+  content: "Kanban";
   font-family: "Montserrat", sans-serif;
   color: rgb(223, 220, 216);
   text-shadow: -0.8rem -0.2rem 0 #000, 0.2rem -0.2rem 0 #000,
@@ -39,7 +39,7 @@ body {
 }
 
 .animacaoLoading::before {
-  content: '';
+  content: "";
   background-image: url(./assets/logoTipos/kanbanHub.svg);
   width: 8rem;
   height: 8rem;
@@ -282,17 +282,16 @@ fieldset > button:hover {
   }
 
   .animacaoLoading {
-  height: 130vh;
-  align-items: self-start;
-  padding-top: 50%;
-}
+    height: 130vh;
+    align-items: self-start;
+    padding-top: 25%;
+  }
 
   body {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
-    grid-template-areas:
-      "logoTitulo";
+    grid-template-areas: "logoTitulo";
   }
 
   .logoTituloAtivo {
@@ -336,6 +335,10 @@ fieldset > button:hover {
     font-size: 50%;
   }
 
+  .animacaoLoading {
+    padding-top: 32%;
+  }
+
   #contentLogoTitulo > h1 {
     font-size: 4rem;
   }
@@ -352,6 +355,10 @@ fieldset > button:hover {
 @media (max-width: 600px) {
   #logoTitulo {
     height: 50vh;
+  }
+
+  .animacaoLoading {
+    padding-top: 40%;
   }
 
   form {
@@ -378,3 +385,9 @@ fieldset > button:hover {
     font-size: 4rem;
   }
 }
+
+@media (max-width: 600px) {
+  .animacaoLoading {
+    padding-top: 50%;
+  }
+ } 
