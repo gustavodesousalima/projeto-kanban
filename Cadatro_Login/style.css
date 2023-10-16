@@ -59,6 +59,16 @@ body {
   }
 }
 
+@keyframes animacaoSurgir {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 #logoTitulo {
   height: 100vh;
   width: 60vw;
@@ -86,6 +96,8 @@ body {
   max-width: 80%;
   padding: 0 10rem;
   transition: opacity 1.5s;
+  animation: animacaoSurgir 1.5s ease-in-out;
+  animation-delay: 1.5s;
 }
 
 #contentLogoTitulo > span img {
@@ -148,12 +160,11 @@ fieldset {
   flex-direction: column;
   border: none;
   justify-content: center;
-  /* padding: 4rem 4rem; */
   border-radius: 0.5rem;
-  /* box-shadow: 0 0 0.4rem 0.2rem white;
-  background-color: rgb(167, 255, 203); */
   gap: 1.5rem;
   min-width: 70%;
+  animation: animacaoSurgir 1.5s ease-in-out;
+  animation-delay: 1.5s;
 }
 
 h2 {
