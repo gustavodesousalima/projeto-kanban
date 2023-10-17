@@ -1,37 +1,4 @@
-@media screen and (max-width: 480px) {
-
-    .nav_Bar {
-        justify-content: center;
-    }
-
-    .container {
-        flex-direction: column;
-    }
-
-    .containerTasks {
-        width: 100%;
-    }
-
-    .listTasks {
-        flex-direction: row;
-        gap: 14vh;
-        padding-left: 4vh;
-        padding-right: 2vh;
-        margin-bottom: 2vh;
-    }
-
-    .task-item {
-        max-height: 35vh;
-        margin: 2;
-        padding: 2vh;
-
-    }
-
-    #containerForms {
-        position: fixed;
-        height: 100vh;
-    }
-
+@media (max-width: 480px) {
     .containerEntriesData {
         justify-content: center;
         width: 90%;
@@ -48,36 +15,12 @@
     }
 }
 
-@media screen and (min-width: 481px)and (max-width: 999px) {
-    #containerForms {
-        justify-content: center;
-        align-items: flex-start;
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
     }
 
-    .containerEntriesData {
-        margin: 2vh;
-        align-items: center;
-        justify-content: center;
-        width: 60%;
-    }
-
-    .containerEntriesData h2 {
-        font-size: 1rem;
-    }
-
-    .containerEntriesData label {
-        font-size: 0.8rem;
-    }
-
-    .containerEntriesData input {
-
-        font-size: 0.7rem;
-    }
-
-    .containerStatusTasks {
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 4vh;
+    .containerTasks {
+        width: 100%;
     }
 }
