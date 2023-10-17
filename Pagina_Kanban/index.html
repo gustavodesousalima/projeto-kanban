@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <script src="./scripts/efeitosDaPagina/index.js" defer></script>
-    <script src="scripts/FuncoesBasicas/FuncoesTarefa.js" defer></script>
+    <script  src="./scripts/FuncoesBasicas/FuncoesTarefa.js" defer></script>
     <script src="../assets/efeitoDeLoading/loading.js"></script>
     <title>Quadro Kanban</title>
     <link rel="shortcut icon" href="../assets/logoTipos/favicon.svg" type="image/x-icon" />
@@ -27,8 +27,9 @@
       <form
         id="containerEntries"
         class="containerEntriesData"
-        onsubmit="event.preventDefault()"
-      >
+        name="formMain">
+        <!-- onsubmit="event.preventDefault()"-->
+        
         <h2>Criar Nova Tarefa</h2>
         <label for="titulo">Digite o título da tarefa</label>
         <input type="text" name="titulo" id="titulo" placeholder="Titulo..." />
@@ -67,25 +68,10 @@
           </button>
         </div>
 
-        <ul class="listTasks">
-          <li class="task-item">
-            <h2 class="title-task">Titulo da Task</h2>
-            <div class="task-details">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Voluptas ab eos quae eveniet minus reiciendis enim ratione
-              </p>
-            </div>
-            <div class="task-end">
-              <div class="buttons-Tasks">
-                <button class="edit-button"></button>
-                <button class="remove-button"></button>
-                <button class="modal-button"></button>
-              </div>
-              <data class="task-deadline">15/11/2023</data>
-            </div>
-          </li>
-          <li class="task-item">
+        <ul class="list_Tasks_ToDo">
+         
+         
+          <!-- <li class="task-item">
             <h2 class="title-task">Titulo da Task</h2>
             <div class="task-details">
               <p>
@@ -101,24 +87,8 @@
               </div>
               <data class="task-deadline">15/11/2023</data>
             </div>
-          </li>
-          <li class="task-item">
-            <h2 class="title-task">Titulo da Task</h2>
-            <div class="task-details">
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
-                animi modi esse, atque recusandae tempof:
-              </p>
-            </div>
-            <div class="task-end">
-              <div class="buttons-Tasks">
-                <button class="edit-button"></button>
-                <button class="remove-button"></button>
-                <button class="modal-button"></button>
-              </div>
-              <data class="task-deadline">15/11/2023</data>
-            </div>
-          </li>
+          </li> -->
+          
         </ul>
       </div>
 
@@ -136,8 +106,8 @@
           </button>
         </div>
 
-        <ul class="listTasks">
-          <li class="task-item">
+        <ul class="list_Tasks_In_Progress">
+          <!-- <li class="task-item">
             <h2 class="title-task">Titulo da Task</h2>
             <div class="task-details">
               <p>
@@ -153,41 +123,8 @@
               </div>
               <data class="task-deadline">15/11/2023</data>
             </div>
-          </li>
-          <li class="task-item">
-            <h2 class="title-task">Titulo da Task</h2>
-            <div class="task-details">
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
-                animi modi esse, atque recusandae tempof:
-              </p>
-            </div>
-            <div class="task-end">
-              <div class="buttons-Tasks">
-                <button class="edit-button"></button>
-                <button class="remove-button"></button>
-                <button class="modal-button"></button>
-              </div>
-              <data class="task-deadline">15/11/2023</data>
-            </div>
-          </li>
-          <li class="task-item">
-            <h2 class="title-task">Titulo da Task</h2>
-            <div class="task-details">
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
-                animi modi esse, atque recusandae tempof:
-              </p>
-            </div>
-            <div class="task-end">
-              <div class="buttons-Tasks">
-                <button class="edit-button"></button>
-                <button class="remove-button"></button>
-                <button class="modal-button"></button>
-              </div>
-              <data class="task-deadline">15/11/2023</data>
-            </div>
-          </li>
+          </li> -->
+         
         </ul>
       </div>
 
@@ -201,8 +138,8 @@
           </button>
         </div>
 
-        <ul class="listTasks">
-          <li class="task-item">
+        <ul class="list_Tasks_Completed">
+       <!-- <li class="task-item">
             <h2 class="title-task">Titulo da Task</h2>
             <div class="task-details">
               <p>
@@ -218,41 +155,8 @@
               </div>
               <data class="task-deadline">15/11/2023</data>
             </div>
-          </li>
-          <li class="task-item">
-            <h2 class="title-task">Titulo da Task</h2>
-            <div class="task-details">
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
-                animi modi esse, atque recusandae tempof:
-              </p>
-            </div>
-            <div class="task-end">
-              <div class="buttons-Tasks">
-                <button class="edit-button"></button>
-                <button class="remove-button"></button>
-                <button class="modal-button"></button>
-              </div>
-              <data class="task-deadline">15/11/2023</data>
-            </div>
-          </li>
-          <li class="task-item">
-            <h2 class="title-task">Titulo da Task</h2>
-            <div class="task-details">
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
-                animi modi esse, atque recusandae tempof:
-              </p>
-            </div>
-            <div class="task-end">
-              <div class="buttons-Tasks">
-                <button class="edit-button"></button>
-                <button class="remove-button"></button>
-                <button class="modal-button"></button>
-              </div>
-              <data class="task-deadline">15/11/2023</data>
-            </div>
-          </li>
+          </li> -->
+          
         </ul>
       </div>
     </main>
