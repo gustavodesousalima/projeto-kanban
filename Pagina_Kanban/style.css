@@ -77,7 +77,6 @@ h2 {
   animation: animacaoSurgir 1.5s;
 }
 
-
 .nav_Bar {
   display: flex;
   align-items: center;
@@ -96,7 +95,7 @@ h2 {
 .icon {
   width: 5vh;
   z-index: 0;
-  transition: .2s ease-in-out;
+  transition: 0.2s ease-in-out;
 }
 
 .icon:hover {
@@ -245,10 +244,11 @@ h2 {
   height: 2rem;
   background: none;
   background-image: url(./assets/edit.svg);
-  transition: .2s ease-in-out;
+  transition: 0.2s ease-in-out;
 }
 
-.edit-button:hover, .remove-button:hover {
+.edit-button:hover,
+.remove-button:hover {
   transform: scale(1.25);
 }
 
@@ -257,7 +257,7 @@ h2 {
   height: 1.7rem;
   background: none;
   background-image: url(./assets/remove.svg);
-  transition: .2s ease-in-out;
+  transition: 0.2s ease-in-out;
 }
 
 .task-deadline {
@@ -291,14 +291,14 @@ h2 {
 
 #containerForms {
   width: 100vw;
-  height: 100vh;
+  height: 105vh;
   position: fixed;
   display: none;
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.548);
   z-index: 1;
-  margin-top: -7.4vh;
+  margin-top: -10vh;
 }
 
 #containerEntries {
@@ -320,7 +320,7 @@ h2 {
   width: 28rem;
   border-radius: 1vh;
   padding: 1rem 2rem;
-  animation: surgirFormulario 1s ;
+  animation: surgirFormulario 1s;
 }
 
 @keyframes surgirFormulario {
@@ -330,7 +330,7 @@ h2 {
   100% {
     transform: translateY(0);
   }
- }
+}
 
 .activeContainer {
   display: flex;
@@ -353,7 +353,7 @@ h2 {
   margin-bottom: 1rem;
 }
 
-.containerStatusTasks{
+.containerStatusTasks {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -369,7 +369,6 @@ h2 {
   -webkit-appearance: none;
   cursor: pointer;
 }
-
 
 .containerEntriesData .term {
   color: rgb(7, 4, 4);
@@ -398,7 +397,7 @@ h2 {
   cursor: pointer;
   z-index: 0;
   font-family: "Poppins", sans-serif;
-  transition: .2s ease-in-out;
+  transition: 0.2s ease-in-out;
 }
 
 .styleButtonsForm:hover {
@@ -410,12 +409,56 @@ h2 {
   background-color: white;
   border: 1px solid red;
   color: black;
- }
+}
 
- .styleButtonsForm:nth-child(2):hover {
+.styleButtonsForm:nth-child(2):hover {
   background-color: red;
   color: white;
-  }
+}
 
+#confirmacaoDeRemocaoDeTask {
+  width: 25rem;
+  background-color: white;
+  padding: 0.8rem 1rem;
+  text-align: center;
+  border-radius: 0.5rem;
+  display: none;
+  animation: surgirFormulario 1s;
+}
+
+#confirmacaoDeRemocaoDeTask > h2 {
+  font-size: 1.3rem;
+  color: red;
+}
+
+#confirmacaoDeRemocaoDeTask > button {
+  width: 7rem;
+  border-radius: 0.5rem;
+  height: 2rem;
+  margin-top: 0.5rem;
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+  border: 0.01rem solid black;
+}
+
+#confirmacaoDeRemocaoDeTask > button:nth-child(2) {
+  background-color: black;
+  color: white;
+}
+
+#confirmacaoDeRemocaoDeTask > button:nth-child(2):hover {
+  background-color: red;
+  color: white;
+}
+
+#confirmacaoDeRemocaoDeTask > button:nth-child(3) {
+  background-color: white;
+  color: black;
+}
+
+#confirmacaoDeRemocaoDeTask > button:nth-child(3):hover {
+  background-color: #00ff80;
+  color: black;
+}
 
 /* @media and (max) */

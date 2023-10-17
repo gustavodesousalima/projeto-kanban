@@ -11,6 +11,9 @@ const [btnAfazer, btnEmAndamento, btnConcluido] =
 const containerForms = document.getElementById("containerForms")
 const containerEntries = document.getElementById("containerEntries")
 const editTasksForm = document.getElementById("editTasksForm")
+const confirmacaoDeRemocaoDeTask = document.getElementById(
+  "confirmacaoDeRemocaoDeTask"
+)
 const body = document.getElementsByTagName("body")[0]
 
 
@@ -52,50 +55,59 @@ const listaTarefasConcluido = [{}]
 
 //
 form.addEventListener("submit", (event) => {
-    event.preventDefault()
-    containerForms.style.display = "none"
-    /* console.log(form) */
-    const { formMain } = document.forms
-    console.log(formMain)
-    switch (botaoStatusTarefa) {
-        case 'btnAfazer':
-            listaTarefasAfazer.push({
-                titulo: formMain.titulo.value,
-                Text: formMain.descricao.value,
-                status: formMain.statusTask.value,
-                prazo: formMain.term.value
-            })
-            elementoPAITarefaToDo.appendChild(criacaoElementoTareda(listaTarefasAfazer))
-            break;
+  event.preventDefault()
+  // Todos os elementos devem receber display none aqui também pq se n eles vão ficar aparecendo dps de submitar
+  containerEntries.style.display = "none"
+  editTasksForm.style.display = "none"
+  containerForms.style.display = "none"
+  confirmacaoDeRemocaoDeTask.style.display = "none"
+  body.style.overflow = "scroll"
+  /* console.log(form) */
+  const { formMain } = document.forms
+  console.log(formMain)
+  switch (botaoStatusTarefa) {
+    case "btnAfazer":
+      listaTarefasAfazer.push({
+        titulo: formMain.titulo.value,
+        Text: formMain.descricao.value,
+        status: formMain.statusTask.value,
+        prazo: formMain.term.value,
+      })
+      elementoPAITarefaToDo.appendChild(
+        criacaoElementoTareda(listaTarefasAfazer)
+      )
+      break
 
-        case 'btnEmAndamento':
-            listaTarefasEmAndamento.push({
-                titulo: formMain.titulo.value,
-                Text: formMain.descricao.value,
-                status: formMain.statusTask.value,
-                prazo: formMain.term.value
-            })
-            elementoPAITarefaProgress.appendChild(criacaoElementoTareda(listaTarefasEmAndamento))
-            break;
-        case 'btnConcluido':
-            listaTarefasConcluido.push({
-                titulo: formMain.titulo.value,
-                Text: formMain.descricao.value,
-                status: formMain.statusTask.value,
-                prazo: formMain.term.value
-            })
-            elementoPAITarefaCompleted.appendChild(criacaoElementoTareda(listaTarefasConcluido))
-            break;
-    }
-    //criacaoElementoTareda(listaTarefas,botaoStatusTarefa)
-    console.log(listaTarefasAfazer)
-    console.log(botaoStatusTarefa)
+    case "btnEmAndamento":
+      listaTarefasEmAndamento.push({
+        titulo: formMain.titulo.value,
+        Text: formMain.descricao.value,
+        status: formMain.statusTask.value,
+        prazo: formMain.term.value,
+      })
+      elementoPAITarefaProgress.appendChild(
+        criacaoElementoTareda(listaTarefasEmAndamento)
+      )
+      break
+    case "btnConcluido":
+      listaTarefasConcluido.push({
+        titulo: formMain.titulo.value,
+        Text: formMain.descricao.value,
+        status: formMain.statusTask.value,
+        prazo: formMain.term.value,
+      })
+      elementoPAITarefaCompleted.appendChild(
+        criacaoElementoTareda(listaTarefasConcluido)
+      )
+      break
+  }
+  //criacaoElementoTareda(listaTarefas,botaoStatusTarefa)
+  console.log(listaTarefasAfazer)
+  console.log(botaoStatusTarefa)
 
-
-    
-    formMain.titulo.value = ''
-    formMain.descricao.value= ''
-    formMain.term.value= ''
+  formMain.titulo.value = ""
+  formMain.descricao.value = ""
+  formMain.term.value = ""
 })
 
 
@@ -168,6 +180,7 @@ function criacaoElementoTareda(obj) {
   //<button class="remove-button"></button>
   let btnRemover = document.createElement('button')
   btnRemover.setAttribute('class','remove-button')
+  btnRemover.setAttribute("onclick", `excluir()`)
 
   //<button class="modal-button"></button>
   let btnModal = document.createElement('button')
@@ -203,8 +216,15 @@ function editar(){
     })
   })
 }
-function excluir(){
-  
+function excluir() {
+  const removeButton = document.querySelectorAll(".remove-button")
+  removeButton.forEach((button) => {
+    button.addEventListener("click", () => {
+      containerForms.style.display = "flex"
+      confirmacaoDeRemocaoDeTask.style.display = "block"
+      body.style.overflow = "hidden"
+    })
+  })
 }
 
 
@@ -215,6 +235,7 @@ cancelTask.forEach((button) => {
     editTasksForm.style.display = "none"
     containerForms.style.display = "none"
     body.style.overflow = "scroll"
+    confirmacaoDeRemocaoDeTask.style.display = "none"
   })
 })
 

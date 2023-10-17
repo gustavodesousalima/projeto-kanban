@@ -13,6 +13,14 @@
         gap: 2vh;
         width: 100%;
     }
+
+    #confirmacaoDeRemocaoDeTask {
+    width: 20rem;
+    background-color: white;
+    padding: 0.4rem 0.5rem;
+    text-align: center;
+    border-radius: 0.5rem;
+  }
 }
 
 @media (max-width: 900px) {
