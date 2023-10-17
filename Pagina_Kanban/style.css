@@ -11,6 +11,14 @@ body {
   background-color: white;
 }
 
+p {
+  word-wrap: break-word;
+}
+
+h2 {
+  word-wrap: break-word;
+}
+
 .animacaoLoading {
   width: 100vw;
   height: 100vh;
