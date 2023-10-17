@@ -11,11 +11,14 @@
     <script src="./scripts/EfeitosDaPagina/interacaoComInputs.js" defer></script>
     <script src="./scripts/EfeitosDaPagina/efeitoDeTransicao.js" defer></script>
     <script src="../assets/efeitoDeLoading/loading.js" defer></script>
-
+    
     <!--fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Poppins&family=Roboto&display=swap" rel="stylesheet"/>
+    
+
+  
   </head>
   <body>
     
@@ -31,16 +34,23 @@
           <img class="imgDentroDoInput" src="./assets/iconesInputs/user.svg" alt=""/>
           <input type="text" name="nome" id="nome" placeholder="Nome de Usuário" required />
         </div>
+
+        <div id="error-message-3" style="display: none;"></div>
         
         <!--Input password-->
         <div class="inputs">
           <img class="imgDentroDoInput" src="./assets/iconesInputs/password.svg" alt=""/>
           <input type="password" name="senha" id="senha" placeholder="Sua Senha" required />
           
+
+          
+          
           <button type="button" class="verSenha">
             <img src="./assets/iconesInputs/seePassword.svg" alt="" />
           </button>
         </div>
+        
+        <div id="error-message-4" style="display: none;"></div>
         
         <button>ENTRAR</button>
         
@@ -124,9 +134,10 @@
       
     </form>
     
-    
+
     <!--Validações-->
     <script src="./scripts/Validacoes/cadastro-validacao/script.js" defer></script>
+    <script src="./scripts/Validacoes/login-validacao/script.js" defer></script>
   </body>
   
 </html>
