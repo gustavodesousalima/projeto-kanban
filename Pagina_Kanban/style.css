@@ -1,0 +1,388 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: white;
+}
+
+
+.animacaoLoading {
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.animacaoLoading::after {
+  content: "Kanban";
+  font-family: "Montserrat", sans-serif;
+  color: rgb(223, 220, 216);
+  text-shadow: -0.47rem -0.1rem 0 #000, 0.1rem -0.1rem 0 #000,
+    -0.1rem 0.1rem 0 #000, 0.1rem 0.1rem 0 #000;
+  letter-spacing: 0.2rem;
+  font-size: 4rem;
+  animation: animacaoLoading 3s ease-in-out infinite;
+}
+
+.animacaoLoading::before {
+  content: "";
+  background-image: url(../assets/logoTipos/kanbanHub.svg);
+  width: 4rem;
+  height: 4rem;
+  background-size: cover;
+  animation: animacaoLoading 3s ease-in-out infinite;
+}
+
+@keyframes animacaoLoading {
+  0% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(20%);
+  }
+  100% {
+    transform: translate(0%);
+  }
+}
+
+@keyframes animacaoSurgir {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+
+.nav_Bar {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding-left: 2rem;
+  z-index: 0;
+  background-color: black;
+  min-height: 3.5rem;
+}
+
+.title_Primary {
+  color: #00ff80;
+}
+
+.icon {
+  width: 5vh;
+  z-index: 0;
+  transition: .2s ease-in-out;
+}
+
+.icon:hover {
+  transform: scale(1.25);
+}
+
+.containerSubtitle {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1vh;
+}
+
+.subtitle {
+  font-family: "Poppins", sans-serif;
+  padding: 1vh;
+  color: black;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.subtitle > img {
+  width: 2.1rem;
+  height: 2.1rem;
+}
+
+#relogioEspecial {
+  width: 1.8rem;
+}
+
+.buttonAddTask {
+  background: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 2vh;
+  cursor: pointer;
+  border: none;
+}
+
+.container {
+  background-color: transparent;
+  display: flex;
+  /* flex-direction: column; quando for fazer o media query, usar esse style para mudar a direção do container das tasks */
+  height: 82vh;
+  border-radius: 1vh;
+  gap: 6vh;
+  margin: 4vh;
+}
+
+.containerTasks {
+  background-color: #ffffff00;
+  /* border: 1px solid rgb(255, 255, 255); */
+  width: 65vh;
+  max-height: 82vh;
+  border-radius: 1vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 0;
+}
+
+.entriesData {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 0;
+}
+
+.listTasks {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #ffffff00;
+  border-bottom-left-radius: 1vh;
+  border-bottom-right-radius: 1vh;
+  overflow-y: scroll;
+  position: relative;
+}
+
+.task-item {
+  list-style: none;
+  font-family: "Poppins", sans-serif;
+  margin: 2vh;
+  padding: 10px;
+  box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.212);
+  border-radius: 5px;
+  color: rgb(27, 26, 26);
+  background-color: rgba(236, 233, 228, 0.747);
+  position: relative;
+}
+
+.task-item:nth-child(odd) {
+  border-left: 0.4rem solid black;
+}
+
+.task-item:nth-child(even) {
+  border-left: 0.4rem solid #00ff80;
+}
+
+.title-task {
+  font-size: 1.4rem;
+  color: black;
+  text-shadow: -0.1rem -0.1rem #00ff80;
+}
+
+.task-details {
+  padding: 0.5vh;
+}
+
+.task-description {
+  margin: 2vh;
+  font-weight: 800;
+}
+
+.task-end {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buttons-Tasks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.buttons-Tasks > button {
+  border: none;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.edit-button {
+  width: 2rem;
+  height: 2rem;
+  background: none;
+  background-image: url(./assets/edit.svg);
+  transition: .2s ease-in-out;
+}
+
+.edit-button:hover, .remove-button:hover {
+  transform: scale(1.25);
+}
+
+.remove-button {
+  width: 1.7rem;
+  height: 1.7rem;
+  background: none;
+  background-image: url(./assets/remove.svg);
+  transition: .2s ease-in-out;
+}
+
+.task-deadline {
+  background-color: black;
+  color: white;
+  padding: 0.3rem 1.5rem;
+  border-radius: 0.5rem;
+}
+
+.task-completed {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.task-pending {
+  font-weight: bold;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(28, 31, 28);
+  border-radius: 1vh;
+}
+
+::-webkit-scrollbar-track {
+  background: none;
+}
+
+#containerForms {
+  width: 100vw;
+  height: 90.9vh;
+  position: absolute;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.548);
+  z-index: 1;
+}
+
+.containerEntriesData {
+  background-color: white;
+  box-shadow: 0px 0px 2px 2px rgb(33, 48, 40);
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  width: 25rem;
+  border-radius: 1vh;
+  padding: 1rem 2rem;
+  animation: surgirFormulario 1s ;
+}
+
+@keyframes surgirFormulario {
+  0% {
+    transform: translateY(12%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+ }
+
+.activeContainer {
+  display: flex;
+}
+
+.containerEntriesData label {
+  color: rgb(36, 34, 34);
+  border-radius: 0.7vh;
+  text-shadow: 2px 2px 2px #9b9999;
+  z-index: 0;
+}
+
+.containerEntriesData input:not(#term) {
+  background: none;
+  padding: 0.5vh;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid rgb(24, 199, 97);
+  margin-bottom: 1rem;
+}
+
+#statusTask {
+  width: 40%;
+  padding: 0.5rem 0.5rem;
+  border-radius: 0.4rem;
+  background-color: black;
+  color: white;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+
+.containerEntriesData #term {
+  color: rgb(7, 4, 4);
+  background-color: rgba(255, 255, 255, 0);
+  outline: none;
+  border: none;
+  width: 40%;
+  border-bottom: 2px solid rgb(24, 199, 97);
+  margin-bottom: 1rem;
+}
+
+.buttonsForm {
+  display: flex;
+}
+
+.styleButtonsForm {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 2vh;
+  padding: 0.9vh 4vh;
+  border-radius: 1vh;
+  border: 1px solid black;
+  color: white;
+  cursor: pointer;
+  z-index: 0;
+  font-family: "Poppins", sans-serif;
+  transition: .2s ease-in-out;
+}
+
+.styleButtonsForm:hover {
+  background-color: white;
+  color: black;
+}
+
+.styleButtonsForm:nth-child(2) {
+  background-color: white;
+  border: 1px solid red;
+  color: black;
+ }
+
+ .styleButtonsForm:nth-child(2):hover {
+  background-color: red;
+  color: white;
+  }
+
+
+/* @media and (max) */
