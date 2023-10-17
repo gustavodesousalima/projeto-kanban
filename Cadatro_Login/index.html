@@ -4,54 +4,39 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cadastro | Kanban</title>
-    <link
-      rel="shortcut icon"
-      href="../assets/logoTipos/favicon.svg"
-      type="image/x-icon"
-    />
+    
+    <link rel="shortcut icon" href="../assets/logoTipos/favicon.svg" type="image/x-icon"/>
     <link rel="stylesheet" href="style.css" />
+    
     <script src="./scripts/EfeitosDaPagina/interacaoComInputs.js" defer></script>
     <script src="./scripts/EfeitosDaPagina/efeitoDeTransicao.js" defer></script>
     <script src="../assets/efeitoDeLoading/loading.js" defer></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <!--fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Poppins&family=Roboto&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Poppins&family=Roboto&display=swap" rel="stylesheet"/>
   </head>
   <body>
+    
     <div class="animacaoLoading"></div>
+
     <form class="formLogin" action="" id="formularioLogin">
+
       <fieldset>
         <h2>Faça Login</h2>
+
+        <!--Input Login-->
         <div class="inputs">
-          <img
-            class="imgDentroDoInput"
-            src="./assets/iconesInputs/user.svg"
-            alt=""
-          />
-          <input
-            type="text"
-            name="nome"
-            id="nome"
-            placeholder="Nome de Usuário"
-            required
-          />
+          <img class="imgDentroDoInput" src="./assets/iconesInputs/user.svg" alt=""/>
+          <input type="text" name="nome" id="nome" placeholder="Nome de Usuário" required />
         </div>
+
+        <!--Input password-->
         <div class="inputs">
-          <img
-            class="imgDentroDoInput"
-            src="./assets/iconesInputs/password.svg"
-            alt=""
-          />
-          <input
-            type="password"
-            name="senha"
-            id="senha"
-            placeholder="Sua Senha"
-            required
-          />
+          <img class="imgDentroDoInput" src="./assets/iconesInputs/password.svg" alt=""/>
+          <input type="password" name="senha" id="senha" placeholder="Sua Senha" required />
+
           <button type="button" class="verSenha">
             <img src="./assets/iconesInputs/seePassword.svg" alt="" />
           </button>
@@ -61,14 +46,19 @@
 
         <hr />
 
+        <!--Botão cadastrar - transição -->
         <div class="alterarCadastrarELogin">
           <button class="botaoTransicao" type="button" id="passarParaCadastrar">
             Cadastrar
           </button>
+
           <button class="botaoDesativado" type="button" disabled>Login</button>
         </div>
+
       </fieldset>
     </form>
+
+
 
     <div id="logoTitulo">
       <div id="contentLogoTitulo">
@@ -76,54 +66,34 @@
         <h1>Cadastre-se na nossa plataforma</h1>
       </div>
     </div>
+
+
     <form class="formCadastro" action="" id="formularioCadastro">
       <fieldset>
+        
         <h2>Crie Sua Conta</h2>
+        
+        <!-- Cadastro - input nome -->
         <div class="inputs">
-          <img
-            class="imgDentroDoInput"
-            src="./assets/iconesInputs/user.svg"
-            alt=""
-          />
-          <input
-            type="text"
-            name="cadastroNome"
-            id="cadastroNome"
-            placeholder="Nome de Usuário"
-            required
-          />
+          <img class="imgDentroDoInput" src="./assets/iconesInputs/user.svg" alt="" />
+          <input type="text" name="cadastroNome" id="cadastroNome" placeholder="Nome de Usuário" required />
         </div>
+
+        <!-- Cadastro - input senha -->
         <div class="inputs">
-          <img
-            class="imgDentroDoInput"
-            src="./assets/iconesInputs/password.svg"
-            alt=""
-          />
-          <input
-            type="password"
-            name="cadastroSenha"
-            id="cadastroSenha"
-            placeholder="Sua Senha"
-            required
-          />
+          <img class="imgDentroDoInput" src="./assets/iconesInputs/password.svg" alt="" />
+          <input type="password" name="cadastroSenha" id="cadastroSenha" placeholder="Sua Senha" required />
+
           <button type="button" class="verSenha">
             <img src="./assets/iconesInputs/seePassword.svg" alt="" />
           </button>
         </div>
 
+
         <div class="inputs">
-          <img
-            class="imgDentroDoInput"
-            src="./assets/iconesInputs/password.svg"
-            alt=""
-          />
-          <input
-            type="password"
-            name="confirmarSenha"
-            id="confirmarSenha"
-            placeholder="Confirme Sua Senha"
-            required
-          />
+          <img class="imgDentroDoInput" src="./assets/iconesInputs/password.svg" alt="" />
+          <input type="password" name="confirmarSenha" id="confirmarSenha" placeholder="Confirme Sua Senha" required />
+          
           <button type="button" class="verSenha">
             <img src="./assets/iconesInputs/seePassword.svg" alt="" />
           </button>
@@ -142,6 +112,10 @@
           </button>
         </div>
       </fieldset>
+
     </form>
+
   </body>
+
+
 </html>
