@@ -24,26 +24,12 @@ btnEmAndamento.addEventListener("click", () => {
 })
 btnConcluido.addEventListener("click", () => {
   containerForms.style.display = "flex"
-  body.style.overflow = "hidden"
-  containerEntries.style.display = "flex"
+  body.style.overflow = 'hidden'
 })
 
 const cancelTask = document.querySelectorAll(".cancelTask")
 
-cancelTask.forEach((button) => {
-  button.addEventListener("click", () => {
-    containerEntries.style.display = "none"
-    editTasksForm.style.display = "none"
-    containerForms.style.display = "none"
-    body.style.overflow = "scroll"
-  })
-})
-
-const editButton = document.querySelectorAll(".edit-button")
-editButton.forEach((button) => {
-  button.addEventListener("click", () => {
-    containerForms.style.display = "flex"
-    editTasksForm.style.display = "flex"
-    body.style.overflow = "hidden"
-  })
+cancelTask.addEventListener('click', () => {
+  containerForms.style.display = "none"
+  body.style.overflow = 'scroll'
 })
