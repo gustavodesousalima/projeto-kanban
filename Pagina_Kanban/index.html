@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="media.css" />
     <script src="./scripts/efeitosDaPagina/index.js" defer></script>
     <script src="../assets/efeitoDeLoading/loading.js"></script>
     <title>Quadro Kanban</title>
@@ -38,7 +39,8 @@
           id="descricao"
           placeholder="Descrição..."
         />
-        <label for="statusTask">Prioridade</label>
+        <div class="containerStatusTasks">
+          <label for="statusTask">Prioridade</label>
         <select name="statusTask" id="statusTask">
           <option value="alta">Alta</option>
           <option value="media">Média</option>
@@ -46,12 +48,13 @@
         </select>
         <label for="term">Prazo de entrega</label>
         <input type="date" name="term" id="term" />
+      </div>
         <div class="buttonsForm">
         <button class="styleButtonsForm" id="createTask">Adicionar</button>
         <button class="styleButtonsForm" type="button" id="cancelTask">
           Cancelar
         </button>
-        </div>
+      </div>
       </form>
     </div>
 
@@ -72,7 +75,7 @@
             <div class="task-details">
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Voluptas ab eos quae eveniet minus reiciendis enim ratione
+                Voluptas ab eos quae eveniet minus
               </p>
             </div>
             <div class="task-end">
