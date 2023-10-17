@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="media.css" />
     <script src="./scripts/efeitosDaPagina/index.js" defer></script>
     <script  src="./scripts/FuncoesBasicas/FuncoesTarefa.js" defer></script>
     <script src="../assets/efeitoDeLoading/loading.js"></script>
@@ -40,7 +41,8 @@
           id="descricao"
           placeholder="Descrição..."
         />
-        <label for="statusTask">Prioridade</label>
+        <div class="containerStatusTasks">
+          <label for="statusTask">Prioridade</label>
         <select name="statusTask" id="statusTask">
           <option value="alta">Alta</option>
           <option value="media">Média</option>
@@ -48,12 +50,13 @@
         </select>
         <label for="term">Prazo de entrega</label>
         <input type="date" name="term" id="term" />
+      </div>
         <div class="buttonsForm">
         <button class="styleButtonsForm" id="createTask">Adicionar</button>
         <button class="styleButtonsForm" type="button" id="cancelTask">
           Cancelar
         </button>
-        </div>
+      </div>
       </form>
     </div>
 
@@ -68,13 +71,35 @@
           </button>
         </div>
 
+
         <ul class="list_Tasks_ToDo">
          
          
           <!-- <li class="task-item">
+=======
+        <ul class="listTasks">
+          <li class="task-item">
             <h2 class="title-task">Titulo da Task</h2>
             <div class="task-details">
               <p>
+                a
+              </p>
+            </div>
+            <div class="task-end">
+              <div class="buttons-Tasks">
+                <button class="edit-button"></button>
+                <button class="remove-button"></button>
+                <button class="modal-button"></button>
+              </div>
+              <data class="task-deadline">15/11/2023</data>
+            </div>
+          </li>
+          <li class="task-item">
+            <h2 class="title-task">Titulo da Task</h2>
+            <div class="task-details">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
+                animi modi esse, atque recusandae tempof:
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
                 animi modi esse, atque recusandae tempof:
               </p>

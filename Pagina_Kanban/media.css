@@ -1,0 +1,26 @@
+@media (max-width: 480px) {
+    .containerEntriesData {
+        justify-content: center;
+        width: 90%;
+        align-items: center;
+    }
+
+    .containerStatusTasks {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2vh;
+        width: 100%;
+    }
+}
+
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .containerTasks {
+        width: 100%;
+    }
+}
