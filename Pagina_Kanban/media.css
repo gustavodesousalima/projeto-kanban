@@ -24,3 +24,10 @@
         width: 100%;
     }
 }
+
+@media (max-width: 1000px) {
+    .container {
+        margin: 2vh;
+        gap: 3vh;
+    }
+}

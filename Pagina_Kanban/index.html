@@ -8,7 +8,11 @@
     <script src="./scripts/efeitosDaPagina/index.js" defer></script>
     <script src="../assets/efeitoDeLoading/loading.js"></script>
     <title>Quadro Kanban</title>
-    <link rel="shortcut icon" href="../assets/logoTipos/favicon.svg" type="image/x-icon" />
+    <link
+      rel="shortcut icon"
+      href="../assets/logoTipos/favicon.svg"
+      type="image/x-icon"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -41,20 +45,60 @@
         />
         <div class="containerStatusTasks">
           <label for="statusTask">Prioridade</label>
-        <select name="statusTask" id="statusTask">
-          <option value="alta">Alta</option>
-          <option value="media">Média</option>
-          <option value="baixa">Baixa</option>
-        </select>
-        <label for="term">Prazo de entrega</label>
-        <input type="date" name="term" id="term" />
-      </div>
+          <select name="statusTask" class="statusTask" id="statusTask">
+            <option value="alta">Alta</option>
+            <option value="media">Média</option>
+            <option value="baixa">Baixa</option>
+          </select>
+          <label for="term">Prazo de entrega</label>
+          <input type="date" name="term" class="term" id="term" />
+        </div>
         <div class="buttonsForm">
-        <button class="styleButtonsForm" id="createTask">Adicionar</button>
-        <button class="styleButtonsForm" type="button" id="cancelTask">
-          Cancelar
-        </button>
-      </div>
+          <button class="styleButtonsForm" id="createTask">Adicionar</button>
+          <button class="styleButtonsForm cancelTask" type="button">
+            Cancelar
+          </button>
+        </div>
+      </form>
+
+      <form
+        id="editTasksForm"
+        class="containerEntriesData"
+        onsubmit="event.preventDefault()"
+      >
+        <h2>Editar Tarefa</h2>
+        <label for="editarTitulo">Editar Título da tarefa</label>
+        <input
+          type="text"
+          name="editarTitulo"
+          id="editarTitulo"
+          placeholder="Titulo..."
+          value=""
+        />
+        <label for="editarDescricao">Editar descrição da tarefa</label>
+        <input
+          type="text"
+          name="editarDescricao"
+          id="editarDescricao"
+          placeholder="Descrição..."
+          value=""
+        />
+        <div class="containerStatusTasks">
+          <label for="editarStatusTask">Prioridade</label>
+          <select name="editarStatusTask" id="editarStatusTask" class="statusTask">
+            <option value="alta">Alta</option>
+            <option value="media">Média</option>
+            <option value="baixa">Baixa</option>
+          </select>
+          <label for="term">Prazo de entrega</label>
+          <input type="date" name="editarTerm" class="term" id="editarTerm" />
+        </div>
+        <div class="buttonsForm">
+          <button class="styleButtonsForm" id="editarTask">Salvar Alterações</button>
+          <button class="styleButtonsForm cancelTask" type="button">
+            Cancelar
+          </button>
+        </div>
       </form>
     </div>
 
@@ -73,45 +117,7 @@
           <li class="task-item">
             <h2 class="title-task">Titulo da Task</h2>
             <div class="task-details">
-              <p>
-                a
-              </p>
-            </div>
-            <div class="task-end">
-              <div class="buttons-Tasks">
-                <button class="edit-button"></button>
-                <button class="remove-button"></button>
-                <button class="modal-button"></button>
-              </div>
-              <data class="task-deadline">15/11/2023</data>
-            </div>
-          </li>
-          <li class="task-item">
-            <h2 class="title-task">Titulo da Task</h2>
-            <div class="task-details">
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
-                animi modi esse, atque recusandae tempof:
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
-                animi modi esse, atque recusandae tempof:
-              </p>
-            </div>
-            <div class="task-end">
-              <div class="buttons-Tasks">
-                <button class="edit-button"></button>
-                <button class="remove-button"></button>
-                <button class="modal-button"></button>
-              </div>
-              <data class="task-deadline">15/11/2023</data>
-            </div>
-          </li>
-          <li class="task-item">
-            <h2 class="title-task">Titulo da Task</h2>
-            <div class="task-details">
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
-                animi modi esse, atque recusandae tempof:
-              </p>
+              <p>a</p>
             </div>
             <div class="task-end">
               <div class="buttons-Tasks">
@@ -140,23 +146,6 @@
         </div>
 
         <ul class="listTasks">
-          <li class="task-item">
-            <h2 class="title-task">Titulo da Task</h2>
-            <div class="task-details">
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
-                animi modi esse, atque recusandae tempof:
-              </p>
-            </div>
-            <div class="task-end">
-              <div class="buttons-Tasks">
-                <button class="edit-button"></button>
-                <button class="remove-button"></button>
-                <button class="modal-button"></button>
-              </div>
-              <data class="task-deadline">15/11/2023</data>
-            </div>
-          </li>
           <li class="task-item">
             <h2 class="title-task">Titulo da Task</h2>
             <div class="task-details">
