@@ -25,27 +25,27 @@
 
       <fieldset>
         <h2>Faça Login</h2>
-
+        
         <!--Input Login-->
         <div class="inputs">
           <img class="imgDentroDoInput" src="./assets/iconesInputs/user.svg" alt=""/>
           <input type="text" name="nome" id="nome" placeholder="Nome de Usuário" required />
         </div>
-
+        
         <!--Input password-->
         <div class="inputs">
           <img class="imgDentroDoInput" src="./assets/iconesInputs/password.svg" alt=""/>
           <input type="password" name="senha" id="senha" placeholder="Sua Senha" required />
-
+          
           <button type="button" class="verSenha">
             <img src="./assets/iconesInputs/seePassword.svg" alt="" />
           </button>
         </div>
-
+        
         <button>ENTRAR</button>
-
+        
         <hr />
-
+        
         <!--Botão cadastrar - transição -->
         <div class="alterarCadastrarELogin">
           <button class="botaoTransicao" type="button" id="passarParaCadastrar">
@@ -54,20 +54,20 @@
 
           <button class="botaoDesativado" type="button" disabled>Login</button>
         </div>
-
+        
       </fieldset>
     </form>
-
-
-
+    
+    
+    
     <div id="logoTitulo">
       <div id="contentLogoTitulo">
         <span><img src="../assets/logoTipos/kanbanHub.svg" alt="" />Kanban</span>
         <h1>Cadastre-se na nossa plataforma</h1>
       </div>
     </div>
-
-
+    
+    
     <form class="formCadastro" action="" id="formularioCadastro">
       <fieldset>
         
@@ -79,15 +79,24 @@
           <input type="text" name="cadastroNome" id="cadastroNome" placeholder="Nome de Usuário" required />
         </div>
 
+        <!--Mensagem de erro 1 -->
+        <div id="error-message" style="display: none;">aaa</div>
+        
+
         <!-- Cadastro - input senha -->
         <div class="inputs">
           <img class="imgDentroDoInput" src="./assets/iconesInputs/password.svg" alt="" />
           <input type="password" name="cadastroSenha" id="cadastroSenha" placeholder="Sua Senha" required />
 
+          
+          
           <button type="button" class="verSenha">
             <img src="./assets/iconesInputs/seePassword.svg" alt="" />
           </button>
         </div>
+
+        <!--Mensagem de erro 2 -->
+        <div id="error-message-2" style="display: none;"> aaa</div>
 
 
         <div class="inputs">
@@ -98,11 +107,11 @@
             <img src="./assets/iconesInputs/seePassword.svg" alt="" />
           </button>
         </div>
-
+        
         <button>CADASTRAR</button>
-
+        
         <hr />
-
+        
         <div class="alterarCadastrarELogin">
           <button class="botaoDesativado" type="button" disabled>
             Cadastro
@@ -112,10 +121,13 @@
           </button>
         </div>
       </fieldset>
-
+      
     </form>
-
+    
+    
+    <!--Validações-->
+    <script src="./scripts/Validacoes/cadastro-validacao/script.js" defer></script>
   </body>
-
-
+  
 </html>
+  
