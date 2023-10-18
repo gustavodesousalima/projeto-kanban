@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+
   function validarCampoAoDigitar(inputElement, validationFunction, divId) {
     inputElement.addEventListener('input', function () {
       const valorCampo = inputElement.value;
@@ -64,6 +65,27 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // Função para validar login do local storage
+  function fazerLogin(nomeUsuario, senha) {
+    // Recupera os usuários armazenados no localStorage
+    const usuariosArmazenados = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+    // Verifica se há um usuário correspondente
+    const usuario = usuariosArmazenados.find(
+      (user) => user.nomeUsuario === nomeUsuario && user.senhaUsuario === senha
+    );
+
+    if (usuario) {
+      alert('Login bem-sucedido!');
+      // Você pode redirecionar para outra página aqui, se necessário.
+    } else {
+      alert('Nome de usuário ou senha incorretos.');
+    }
+  }
+
+
+
+
   function validarFormulario(event) {
     event.preventDefault();
 
@@ -76,6 +98,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
       validarNomeUsuario(nomeUsuario);
       validarSenha(senha);
+
+      fazerLogin(nomeUsuario, senha);
     } 
     catch (error) {
       if (error.message.includes('Nome de usuário')) {

@@ -35,6 +35,8 @@
           <input type="text" name="nome" id="nome" placeholder="Nome de Usuário" required />
         </div>
 
+        
+        <!--Mensagem de erro 1 -->
         <div id="error-message-3" style="display: none;"></div>
         
         <!--Input password-->
@@ -42,14 +44,12 @@
           <img class="imgDentroDoInput" src="./assets/iconesInputs/password.svg" alt=""/>
           <input type="password" name="senha" id="senha" placeholder="Sua Senha" required />
           
-
-          
-          
           <button type="button" class="verSenha">
             <img src="./assets/iconesInputs/seePassword.svg" alt="" />
           </button>
         </div>
-        
+
+        <!--Mensagem de erro 2 -->
         <div id="error-message-4" style="display: none;"></div>
         
         <button>ENTRAR</button>
@@ -138,6 +138,7 @@
     <!--Validações-->
     <script src="./scripts/Validacoes/cadastro-validacao/script.js" defer></script>
     <script src="./scripts/Validacoes/login-validacao/script.js" defer></script>
+    <script src="./scripts/storage/script.js" defer></script>
   </body>
   
 </html>

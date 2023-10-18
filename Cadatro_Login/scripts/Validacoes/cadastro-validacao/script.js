@@ -1,7 +1,11 @@
+
+// Variáveis globais para serem usadas no local storage
+let inputCadastroNome = document.getElementById('cadastroNome');
+let inputCadastroSenha = document.getElementById('cadastroSenha');
+let inputConfirmarSenha = document.getElementById('confirmarSenha');
+
+
 document.addEventListener('DOMContentLoaded', function () {
-  const inputCadastroNome = document.getElementById('cadastroNome');
-  const inputCadastroSenha = document.getElementById('cadastroSenha');
-  const inputConfirmarSenha = document.getElementById('confirmarSenha');
   const formularioCadastro = document.getElementById('formularioCadastro');
 
   function exibirMensagemErro(inputElement, divId, mensagem) {
@@ -80,6 +84,10 @@ document.addEventListener('DOMContentLoaded', function () {
       validarNomeUsuario(nomeUsuario);
       validarSenha(senha);
       validarConfirmacaoSenha(senha, confirmarSenha);
+
+
+      // Validação bem sucedida
+      armazenarNoLocalStorage(nomeUsuario, senha);
     } 
     catch (error) {
       if (error.message.includes('Nome de usuário')) {
