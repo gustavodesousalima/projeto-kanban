@@ -1,5 +1,5 @@
 
-// Variáveis globais para serem usadas no local storage
+// Variáveis globais para serem usadas aqui e no local storage
 let inputCadastroNome = document.getElementById('cadastroNome');
 let inputCadastroSenha = document.getElementById('cadastroSenha');
 let inputConfirmarSenha = document.getElementById('confirmarSenha');
@@ -8,6 +8,7 @@ let inputConfirmarSenha = document.getElementById('confirmarSenha');
 document.addEventListener('DOMContentLoaded', function () {
   const formularioCadastro = document.getElementById('formularioCadastro');
 
+  // Exibe mensagens de erro quando o input login e senha forem digitados de forma "errada".
   function exibirMensagemErro(inputElement, divId, mensagem) {
     const divErro = document.getElementById(divId);
     divErro.textContent = mensagem;
@@ -20,6 +21,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Adiciona classe para destacar o campo inválido
     inputElement.classList.add('campo-invalido');
   }
+
+  // Remove as mensagens de erro quando o input login e senha forem digitada de forma "correta"
   function removerMensagemErro(inputElement, divId) {
     const divErro = document.getElementById(divId);
     divErro.textContent = '';
@@ -28,6 +31,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Remove a classe que destaca o campo inválido
     inputElement.classList.remove('campo-invalido');
   }
+
+  // Valida o input do nome do usuário, caso esteja vazio, ou for menor que 3, ou maior que 60 caracteres ou tenha caracteres especiais
   function validarNomeUsuario(nomeUsuario) {
     if (nomeUsuario.trim() === '') {
       throw new Error('O campo nome de usuário não pode estar vazio.');
@@ -46,16 +51,26 @@ document.addEventListener('DOMContentLoaded', function () {
       throw new Error('Nome de usuário não pode conter caracteres especiais.');
     }
   }
+
+  // Verifica se a senha tem pelo menos 8 caracteres.
   function validarSenha(senha) {
     if (senha.length < 8) {
       throw new Error('A senha deve ter no mínimo 8 caracteres.');
     }
   }
+
+  // Verifica se a confirmação de senha coincide com a senha fornecida.
   function validarConfirmacaoSenha(senha, confirmacaoSenha) {
     if (senha !== confirmacaoSenha) {
       throw new Error('A confirmação de senha não coincide com a senha.');
     }
   }
+
+  /*
+    Função que fica fazendo atualização em tempo real do input verificando todo momento se o input está passando pelas validações de caracteres especiais, vazios e etc..
+  
+    Se não houver essa função, só vai aparecer os erros dos inputs quando der "submit" no formulário, com essa função já vai aparecendo o ERRO no DOM na primeira letra errada
+  */
   function validarCampoAoDigitar(inputElement, validationFunction, divId) {
     inputElement.addEventListener('input', function () {
       const valorCampo = inputElement.value;
@@ -69,6 +84,9 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   }
+
+
+  // Quando o form for submetido, será chamada essa função que é o CORE da lógica
   function validarFormulario(event) {
     event.preventDefault();
 
@@ -77,16 +95,18 @@ document.addEventListener('DOMContentLoaded', function () {
       const senha = inputCadastroSenha.value;
       const confirmarSenha = inputConfirmarSenha.value;
 
+      // Limpa qualquer mensagem de erro
       removerMensagemErro(inputCadastroNome, 'error-message');
       removerMensagemErro(inputCadastroSenha, 'error-message-2');
       removerMensagemErro(inputConfirmarSenha, 'error-message-2');
 
+      // Faz as validações dos inputs
       validarNomeUsuario(nomeUsuario);
       validarSenha(senha);
       validarConfirmacaoSenha(senha, confirmarSenha);
 
 
-      // Validação bem sucedida
+      // Se chegar até aqui a validação foi bem sucedida e usuário pode ser cadastrado
       armazenarNoLocalStorage(nomeUsuario, senha);
     } 
     catch (error) {
