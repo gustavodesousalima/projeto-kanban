@@ -142,6 +142,7 @@ h2 {
 .container {
   background-color: transparent;
   display: flex;
+  justify-content: center;
   /* flex-direction: column; quando for fazer o media query, usar esse style para mudar a direção do container das tasks */
   height: 82vh;
   border-radius: 1vh;
