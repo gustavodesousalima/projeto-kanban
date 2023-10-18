@@ -35,13 +35,14 @@
       >
         <h2>Criar Nova Tarefa</h2>
         <label for="titulo">Digite o título da tarefa</label>
-        <input type="text" name="titulo" id="titulo" placeholder="Titulo..." />
+        <input type="text" name="titulo" id="titulo" placeholder="Titulo..." required/>
         <label for="descricao">Descrição da tarefa</label>
         <input
           type="text"
           name="descricao"
           id="descricao"
           placeholder="Descrição..."
+          required
         />
         <div class="containerStatusTasks">
           <label for="statusTask">Prioridade</label>
@@ -74,6 +75,7 @@
           id="editarTitulo"
           placeholder="Titulo..."
           value=""
+          required
         />
         <label for="editarDescricao">Editar descrição da tarefa</label>
         <input
@@ -82,6 +84,7 @@
           id="editarDescricao"
           placeholder="Descrição..."
           value=""
+          required
         />
         <div class="containerStatusTasks">
           <label for="editarStatusTask">Prioridade</label>
