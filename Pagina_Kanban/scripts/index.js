@@ -94,9 +94,6 @@ form[0].addEventListener("submit", (event) => {
       )
       break
   }
-  //criacaoElementoTareda(listaTarefas,botaoStatusTarefa)
-  console.log(botaoStatusTarefa)
-
   formMain.titulo.value = ""
   formMain.descricao.value = ""
   formMain.term.value = ""
@@ -107,15 +104,14 @@ function criacaoElementoTarefa(arr) {
   let elementMain = document.createElement('li')
   elementMain.setAttribute('class', `task-item`)
   elementMain.setAttribute('value', arr.length - 1)
-  ////////////////////////////////////////////
+  
 
   //<h2 class="title-task">Titulo da Task</h2>
   let titulo = document.createElement('h2')
   titulo.setAttribute('class', `title-task`)
   titulo.setAttribute('id', `title-task${arr.length - 1}`)
   titulo.innerText=`${arr[arr.length - 1].titulo}`
-  /* let txtTitulo = document.createTextNode(arr[arr.length - 1].titulo)
-  titulo.appendChild(txtTitulo) */
+
 
   //<div class="task-details">
   let divDetalhes = document.createElement('div')
@@ -125,34 +121,24 @@ function criacaoElementoTarefa(arr) {
   let Detalhe = document.createElement('p')
   Detalhe.setAttribute('id', `Paragrafo-task${arr.length - 1}`)
   Detalhe.innerText=`${arr[arr.length - 1].Text}`
-/* 
-  let txtDetalhe = document.createTextNode(arr[arr.length - 1].Text)
-  Detalhe.appendChild(txtDetalhe) */
+
   divDetalhes.appendChild(Detalhe)
 
-  ///////////////////////////////////////////////
-
-  //<div class="task-end">
   let divAreaFianl = document.createElement('div')
   divAreaFianl.setAttribute('class', 'task-end')
 
-  //<div class="buttons-Tasks">
   let divAreaBotoes = document.createElement('div')
   divAreaBotoes.setAttribute('class', 'buttons-Tasks')
 
-  //<button class="edit-button"></button>
   let btnEditar = document.createElement('button')
   btnEditar.setAttribute('class', 'edit-button')
   btnEditar.setAttribute('value', arr.length - 1)
   btnEditar.setAttribute('onclick', `editar(${btn = btnEditar.value})`)
 
-
-  //<button class="remove-button"></button>
   let btnRemover = document.createElement('button')
   btnRemover.setAttribute('class', 'remove-button')
   btnRemover.setAttribute("onclick", `excluir()`)
 
-  //<button class="modal-button"></button>
   let btnModal = document.createElement('button')
   btnModal.setAttribute('class', 'modal-button')
 
@@ -160,13 +146,11 @@ function criacaoElementoTarefa(arr) {
   divAreaBotoes.appendChild(btnRemover)
   divAreaBotoes.appendChild(btnModal)
 
-  //<data class="task-deadline">15/11/2023</data>
   let DataPrazo = document.createElement('data')
   DataPrazo.setAttribute('class', 'task-deadline')
   DataPrazo.setAttribute('id', `task-deadline${arr.length - 1}`)
   DataPrazo.innerText=`${arr[arr.length - 1].prazo}`
-  /* let data = document.createTextNode(arr[arr.length - 1].prazo) 
-  DataPrazo.appendChild(data)*/
+ 
 
   divAreaFianl.appendChild(divAreaBotoes)
   divAreaFianl.appendChild(DataPrazo)
@@ -185,34 +169,24 @@ function editar(btn) {
 }
 
 
-let t1 = document.querySelector(".list_Tasks_ToDo")
-let t2 = document.querySelector(".list_Tasks_In_Progress")
-let t3 = document.querySelector(".list_Tasks_Completed")
-/* let t4 = document.querySelector(".buttons-Tasks")
 
-
-t4.addEventListener("click", (val) => {
-  console.log(val)
-  console.log(t4.value)
-  
-}) */
-t1.addEventListener("click", (ttt) => {
-  teste('todo', listaTarefasAfazer, ttt.target.value)
-  //console.log(ttt.target.value)
+elementoPAITarefaToDo.addEventListener("click", (ttt) => {
+  teste( listaTarefasAfazer, ttt.target.value)
+ 
 })
-t2.addEventListener("click", (ttt) => {
-  teste('emAndamento', listaTarefasEmAndamento, ttt.target.value)
+elementoPAITarefaProgress.addEventListener("click", (ttt) => {
+  teste( listaTarefasEmAndamento, ttt.target.value)
 })
-t3.addEventListener("click", (ttt) => {
-  teste('concluida', listaTarefasConcluido, ttt.target.value)
+elementoPAITarefaCompleted.addEventListener("click", (ttt) => {
+  teste( listaTarefasConcluido, ttt.target.value)
 })
 
-function teste(areaTarefa, arr, pos) {
+function teste( arr, pos) {
   formEditar.editarTitulo.value=''
    formEditar.editarDescricao.value=''
    formEditar.editarTerm.value=''
-  console.log("valores de entrada"+areaTarefa, arr, pos)
   
+  console.log(arr, parseInt(pos))
   form[1].addEventListener("submit", (event) => {
     event.preventDefault()
 
@@ -221,8 +195,7 @@ function teste(areaTarefa, arr, pos) {
     containerForms.style.display = "none"
     confirmacaoDeRemocaoDeTask.style.display = "none"
     body.style.overflow = "scroll"
-    console.log("valorea desatualizado do array (antes da edição)")
-    console.log(arr[pos])
+    
     const { formEditar } = document.forms
     let txt = formEditar.editarTitulo.value
     let des = formEditar.editarDescricao.value
@@ -233,7 +206,6 @@ function teste(areaTarefa, arr, pos) {
     arr[pos].Text = des
     arr[pos].status = sta
     arr[pos].prazo = da
-    console.log("valorea atualizado do array(depois da edição)")
     console.log(arr[pos])
 
     let titulo = document.getElementById(`title-task${pos}`)
@@ -241,16 +213,11 @@ function teste(areaTarefa, arr, pos) {
     let data= document.getElementById(`task-deadline${pos}`)
     //let prioridade= document.getElementById(``)
 
-    //titulo.innerText = ''
     titulo.innerText = arr[pos].titulo
     Paragrafo.innerText = arr[pos].Text
     data.innerText = arr[pos].prazo
     //prioridade.innerText = arr[pos].status
-
-  /*  formEditar.editarTitulo.value=''
-   formEditar.editarDescricao.value=''
-   formEditar.editarTerm.value='' */
-
+ 
 
   })
 }
