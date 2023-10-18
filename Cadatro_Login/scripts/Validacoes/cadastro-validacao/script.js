@@ -108,6 +108,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
       // Se chegar até aqui a validação foi bem sucedida e usuário pode ser cadastrado
       armazenarNoLocalStorage(nomeUsuario, senha);
+
+      // Limpa os campos
+      inputCadastroNome.value = '';
+      inputCadastroSenha.value = '';
+      inputConfirmarSenha.value = '';
+
+      // Exibe um alerta
+      alert('Usuário cadastrado com sucesso!');
     } 
     catch (error) {
       if (error.message.includes('Nome de usuário')) {
