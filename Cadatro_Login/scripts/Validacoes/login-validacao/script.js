@@ -76,9 +76,9 @@ document.addEventListener('DOMContentLoaded', function () {
     );
 
     if (usuario) {
-      alert('Login bem-sucedido!');
-      // Você pode redirecionar para outra página aqui, se necessário.
-    } else {
+      window.location.href = '../../../../Pagina_Kanban/index.html';
+    } 
+    else {
       alert('Nome de usuário ou senha incorretos.');
     }
   }
