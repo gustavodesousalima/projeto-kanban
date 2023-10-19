@@ -133,7 +133,7 @@ function criacaoElementoTarefa(arr) {
   let btnEditar = document.createElement('button')
   btnEditar.setAttribute('class', 'edit-button')
   btnEditar.setAttribute('value', arr.length - 1)
-  btnEditar.setAttribute('onclick', `editar(${btn = btnEditar.value})`)
+  btnEditar.setAttribute('onclick', `editar()`)
 
   let btnRemover = document.createElement('button')
   btnRemover.setAttribute('class', 'remove-button')
@@ -160,35 +160,41 @@ function criacaoElementoTarefa(arr) {
   elementMain.appendChild(divAreaFianl)
   return elementMain
 }
-
+///////////////////////////////////////////////////////////////////////////////////////////////
+let teste1
+let teste2
 function editar(btn) {
+  
+  
   containerForms.style.display = "flex"
   editTasksForm.style.display = "flex"
   containerEntries.style.display = "none"
   body.style.overflow = "hidden"
+
+  
+
 }
 
-
-
 elementoPAITarefaToDo.addEventListener("click", (ttt) => {
-  teste( listaTarefasAfazer, ttt.target.value)
- 
+      teste1='listaTarefasAfazer'
+      teste2= ttt.target.value
 })
 elementoPAITarefaProgress.addEventListener("click", (ttt) => {
-  teste( listaTarefasEmAndamento, ttt.target.value)
+  teste1='listaTarefasEmAndamento'
+  teste2= ttt.target.value
 })
 elementoPAITarefaCompleted.addEventListener("click", (ttt) => {
-  teste( listaTarefasConcluido, ttt.target.value)
-})
-
-function teste( arr, pos) {
-  formEditar.editarTitulo.value=''
-   formEditar.editarDescricao.value=''
-   formEditar.editarTerm.value=''
+  teste1='listaTarefasConcluido'
+  teste2= ttt.target.value
+})  
   
-  console.log(arr, parseInt(pos))
+
   form[1].addEventListener("submit", (event) => {
     event.preventDefault()
+   /*  task-item
+    const elementoDesejado = document.querySelector(".task-item #title-task${teste2}"); */
+console.log(teste1)
+console.log(teste2)
 
     containerEntries.style.display = "none"
     editTasksForm.style.display = "none"
@@ -197,37 +203,85 @@ function teste( arr, pos) {
     body.style.overflow = "scroll"
     
     const { formEditar } = document.forms
+ 
     let txt = formEditar.editarTitulo.value
     let des = formEditar.editarDescricao.value
     let sta = formEditar.editarStatusTask.value
     let da = formEditar.editarTerm.value
+
+    switch (teste1) {
+      case 'listaTarefasAfazer':
+        console.log('listaTarefasAfazer')
+        listaTarefasAfazer[teste2].titulo = txt
+        listaTarefasAfazer[teste2].Text = des
+        listaTarefasAfazer[teste2].status = sta
+        listaTarefasAfazer[teste2].prazo = da
+        console.log(listaTarefasAfazer[teste2])
     
-    arr[pos].titulo = txt
-    arr[pos].Text = des
-    arr[pos].status = sta
-    arr[pos].prazo = da
-    console.log(arr[pos])
+        let tituloAfazer = document.getElementById(`title-task${teste2}`)
+        let ParagrafoAfazer= document.getElementById(`Paragrafo-task${teste2}`)
+        let dataAfazer= document.getElementById(`task-deadline${teste2}`)
+        //let prioridade= document.getElementById(``)
+    
+        tituloAfazer.innerText = listaTarefasAfazer[teste2].titulo
+        ParagrafoAfazer.innerText = listaTarefasAfazer[teste2].Text
+        dataAfazer.innerText = listaTarefasAfazer[teste2].prazo
+        //prioridade.innerText = arr[pos].status
+        break;
 
-    let titulo = document.getElementById(`title-task${pos}`)
-    let Paragrafo= document.getElementById(`Paragrafo-task${pos}`)
-    let data= document.getElementById(`task-deadline${pos}`)
-    //let prioridade= document.getElementById(``)
+        case 'listaTarefasEmAndamento':
+          console.log('listaTarefasEmAndamento')
+          listaTarefasEmAndamento[teste2].titulo = txt
+          listaTarefasEmAndamento[teste2].Text = des
+          listaTarefasEmAndamento[teste2].status = sta
+          listaTarefasEmAndamento[teste2].prazo = da
+          console.log(listaTarefasEmAndamento[teste2])
+      
+          let tituloEmAndamento = document.getElementById(`title-task${teste2}`)
+          let ParagrafoEmAndamento= document.getElementById(`Paragrafo-task${teste2}`)
+          let dataEmAndamento= document.getElementById(`task-deadline${teste2}`)
+          //let prioridade= document.getElementById(``)
+          console.log(tituloEmAndamento)
+          tituloEmAndamento.innerText = listaTarefasEmAndamento[teste2].titulo
+          ParagrafoEmAndamento.innerText = listaTarefasEmAndamento[teste2].Text
+          dataEmAndamento.innerText = listaTarefasEmAndamento[teste2].prazo
+          //prioridade.innerText = arr[pos].status
+          break;
 
-    titulo.innerText = arr[pos].titulo
-    Paragrafo.innerText = arr[pos].Text
-    data.innerText = arr[pos].prazo
-    //prioridade.innerText = arr[pos].status
- 
+          case "listaTarefasConcluido":
+            console.log('listaTarefasConcluido')
+            listaTarefasConcluido[teste2].titulo = txt
+            listaTarefasConcluido[teste2].Text = des
+            listaTarefasConcluido[teste2].status = sta
+            listaTarefasConcluido[teste2].prazo = da
+            console.log(listaTarefasConcluido[teste2])
+        
+            let tituloConcluid = document.getElementById(`title-task${teste2}`)
+            let ParagrafoConcluid= document.getElementById(`Paragrafo-task${teste2}`)
+            let dataConcluid= document.getElementById(`task-deadline${teste2}`)
+            //let prioridade= document.getElementById(``)
+        
+            tituloConcluid.innerText = listaTarefasConcluido[teste2].titulo
+            ParagrafoConcluid.innerText = listaTarefasConcluido[teste2].Text
+            dataConcluid.innerText = listaTarefasConcluido[teste2].prazo
+            //prioridade.innerText = arr[pos].status
+            break;
+            default:
+              console.log(`dados nao encontrados`);
+    }
+    formEditar.editarTitulo.value=''
+    formEditar.editarDescricao.value=''
+    formEditar.editarTerm.value=''
 
   })
-}
+
 
 
 
 
 function removeTask(lista, arrayTarefas) {
   lista.addEventListener("click", function (event) {
-    console.log(event.target.classList.contains("remove-button"))
+   // console.log(event.target.classList.contains("remove-button"))
     if (event.target.classList.contains("remove-button")) {
       const botaoExcluir = event.target
       const tarefa = botaoExcluir.closest("li")
