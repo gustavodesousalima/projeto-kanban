@@ -46,9 +46,14 @@ document.addEventListener('DOMContentLoaded', function () {
       throw new Error('O campo deve ter no máximo 60 caracteres.');
     }
 
-    // Validar caracteres especiais
+    // Verificar caracteres especiais
     if (!/^[a-zA-Z0-9]+$/.test(nomeUsuario)) {
       throw new Error('Nome de usuário não pode conter caracteres especiais.');
+    }
+
+    // Verificar se há pelo menos uma letra
+    if (!/[a-zA-Z]/.test(nomeUsuario)) {
+      throw new Error('Nome de usuário deve conter pelo menos uma letra.');
     }
   }
 
