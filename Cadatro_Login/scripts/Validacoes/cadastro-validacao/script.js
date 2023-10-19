@@ -114,8 +114,6 @@ document.addEventListener('DOMContentLoaded', function () {
       inputCadastroSenha.value = '';
       inputConfirmarSenha.value = '';
 
-      // Exibe um alerta
-      alert('Usuário cadastrado com sucesso!');
     } 
     catch (error) {
       if (error.message.includes('Nome de usuário')) {
@@ -134,3 +132,30 @@ document.addEventListener('DOMContentLoaded', function () {
 
   formularioCadastro.addEventListener('submit', validarFormulario);
 });
+
+// Função que edita o card de acordo com o erro ou sucesso
+let timeoutID
+
+function cardPersonalizado(mensagem, imagem) {
+  const cardPersonalizado = document.getElementById(
+    "cardDeMensagemPersonalizado"
+  )
+  const textoCard = document.getElementById("textoDaMensagem")
+  const imagemDeStatus = document.querySelector(
+    "#containerPrincipalDaMensagem > img"
+  )
+  textoCard.innerText = mensagem
+  imagemDeStatus.src = `./assets/iconesCardsDaMensagem/${imagem}`
+  cardPersonalizado.style.display = "flex"
+  clearTimeout(timeoutID)
+  timeoutID = setTimeout(() => {
+    cardPersonalizado.style.display = "none"
+  }, 11999)
+}
+
+// Função para fechar o card personalizado
+const fecharCard = document.getElementById("fecharCard")
+fecharCard.addEventListener("click", () => {
+  cardDeMensagemPersonalizado.style.display = "none"
+  clearTimeout(timeoutID) 
+})

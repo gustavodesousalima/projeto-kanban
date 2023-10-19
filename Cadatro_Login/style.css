@@ -69,6 +69,100 @@ body {
   }
 }
 
+#cardDeMensagemPersonalizado {
+  width: 45rem;
+  height: 9rem;
+  background-color: black;
+  position: fixed;
+  right: 0;
+  z-index: 9999;
+  margin: 3rem 3rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  padding: 2rem 2rem;
+  display: none;
+  flex-direction: column;
+  animation: surgirCard 1s, sumirCard 1s linear 11s;
+}
+
+#fecharCard {
+  width: 3rem;
+  height: 3rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+}
+
+#fecharCard > img:hover {
+  transform: scale(1.25);
+}
+
+#fecharCard > img {
+  width: 100%;
+  height: 100%;
+  transition: .2s ease-in-out;
+}
+
+
+#containerPrincipalDaMensagem {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  padding-right: 2rem;
+}
+
+#containerPrincipalDaMensagem > img {
+  width: 3rem;
+  height: 3rem;
+}
+
+#textoDaMensagem {
+  color: white;
+  font-size: 1.7rem;
+  text-align: justify;
+}
+
+#bordaInferior {
+  width: 100%;
+  height: 0.7rem;
+  background-color: #00ff80;
+  position: absolute;
+  border: none;
+  bottom: 0;
+  left: 0;
+  animation: bordaDiminuindo 10s linear forwards 1s;
+}
+
+@keyframes bordaDiminuindo {
+  0% {
+    width: 100%;
+  } 
+  100% {
+    width: 0;
+  }
+}
+
+@keyframes surgirCard {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes sumirCard {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(110%);
+  }
+}
+
 #logoTitulo {
   height: 100vh;
   width: 60vw;

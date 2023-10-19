@@ -79,7 +79,10 @@ document.addEventListener('DOMContentLoaded', function () {
       window.location.href = '../../../../Pagina_Kanban/index.html';
     } 
     else {
-      alert('Nome de usuário ou senha incorretos.');
+      cardPersonalizado(
+        "Nome de usuário ou senha incorretos, por favor tente novamente!",
+        "error.svg"
+      )
     }
   }
 

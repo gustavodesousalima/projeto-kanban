@@ -7,10 +7,13 @@ function armazenarNoLocalStorage(nomeUsuario, senhaUsuario) {
 
   // Se usuário já existe, exibe um alerta e limpa os inputs
   if (usuarioExistente) {
-    alert('Nome de usuário já cadastrado. Escolha outro nome de usuário.');
     inputCadastroNome.value = '';
     inputCadastroSenha.value = '';
     inputConfirmarSenha.value = '';
+    cardPersonalizado(
+      "O Usuário já foi cadastrado, por favor digite outro nome!",
+      "error.svg"
+    )
     return;
   }
 
@@ -19,4 +22,10 @@ function armazenarNoLocalStorage(nomeUsuario, senhaUsuario) {
 
   // Armazena a lista atualizada de usuários no localStorage
   localStorage.setItem('usuarios', JSON.stringify(usuariosArmazenados));
+
+  // Exibe o card de sucesso
+  cardPersonalizado(
+    "O Usuário foi cadastrado com sucesso, agora faça login!",
+    "success.svg"
+  )
 }
