@@ -57,7 +57,7 @@ form[0].addEventListener("submit", (event) => {
   confirmacaoDeRemocaoDeTask.style.display = "none"
   body.style.overflow = "scroll"
   const { formMain } = document.forms
-  
+
   switch (botaoStatusTarefa) {
     case "btnAfazer":
       listaTarefasAfazer.push({
@@ -99,18 +99,25 @@ form[0].addEventListener("submit", (event) => {
   formMain.term.value = ""
 })
 let btn
+
+let contador = 0
+
 function criacaoElementoTarefa(arr) {
+
+  contador += 1
+  console.log(contador)
 
   let elementMain = document.createElement('li')
   elementMain.setAttribute('class', `task-item`)
   elementMain.setAttribute('value', arr.length - 1)
-  
+  elementMain.setAttribute('id', contador)
+  elementMain.setAttribute('draggable', true)
 
   //<h2 class="title-task">Titulo da Task</h2>
   let titulo = document.createElement('h2')
   titulo.setAttribute('class', `title-task`)
   titulo.setAttribute('id', `title-task${arr.length - 1}`)
-  titulo.innerText=`${arr[arr.length - 1].titulo}`
+  titulo.innerText = `${arr[arr.length - 1].titulo}`
 
 
   //<div class="task-details">
@@ -120,7 +127,7 @@ function criacaoElementoTarefa(arr) {
   //<p>lorem lorem lorem ...............</p>
   let Detalhe = document.createElement('p')
   Detalhe.setAttribute('id', `Paragrafo-task${arr.length - 1}`)
-  Detalhe.innerText=`${arr[arr.length - 1].Text}`
+  Detalhe.innerText = `${arr[arr.length - 1].Text}`
 
   divDetalhes.appendChild(Detalhe)
 
@@ -149,8 +156,8 @@ function criacaoElementoTarefa(arr) {
   let DataPrazo = document.createElement('data')
   DataPrazo.setAttribute('class', 'task-deadline')
   DataPrazo.setAttribute('id', `task-deadline${arr.length - 1}`)
-  DataPrazo.innerText=`${arr[arr.length - 1].prazo}`
- 
+  DataPrazo.innerText = `${arr[arr.length - 1].prazo}`
+
 
   divAreaFianl.appendChild(divAreaBotoes)
   divAreaFianl.appendChild(DataPrazo)
@@ -158,6 +165,7 @@ function criacaoElementoTarefa(arr) {
   elementMain.appendChild(titulo)
   elementMain.appendChild(divDetalhes)
   elementMain.appendChild(divAreaFianl)
+  console.log(elementMain)
   return elementMain
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -171,111 +179,111 @@ function editar(btn) {
 }
 
 elementoPAITarefaToDo.addEventListener("click", (ttt) => {
-      colocaEditada='listaTarefasAfazer'
-      indexEditar= ttt.target.value
+  colocaEditada = 'listaTarefasAfazer'
+  indexEditar = ttt.target.value
 })
 elementoPAITarefaProgress.addEventListener("click", (ttt) => {
-  colocaEditada='listaTarefasEmAndamento'
-  indexEditar= ttt.target.value
+  colocaEditada = 'listaTarefasEmAndamento'
+  indexEditar = ttt.target.value
 })
 elementoPAITarefaCompleted.addEventListener("click", (ttt) => {
-  colocaEditada='listaTarefasConcluido'
-  indexEditar= ttt.target.value
-})  
-  
+  colocaEditada = 'listaTarefasConcluido'
+  indexEditar = ttt.target.value
+})
 
 
-  form[1].addEventListener("submit", (event) => {
-    event.preventDefault()
-   /*  task-item
-    const elementoDesejado = document.querySelector(".task-item #title-task${indexEditar}"); */
-console.log(colocaEditada)
-console.log(indexEditar)
 
-    containerEntries.style.display = "none"
-    editTasksForm.style.display = "none"
-    containerForms.style.display = "none"
-    confirmacaoDeRemocaoDeTask.style.display = "none"
-    body.style.overflow = "scroll"
-    
-    const { formEditar } = document.forms
- 
-    let txt = formEditar.editarTitulo.value
-    let des = formEditar.editarDescricao.value
-    let sta = formEditar.editarStatusTask.value
-    let da = formEditar.editarTerm.value
+form[1].addEventListener("submit", (event) => {
+  event.preventDefault()
+  /*  task-item
+   const elementoDesejado = document.querySelector(".task-item #title-task${indexEditar}"); */
+  console.log(colocaEditada)
+  console.log(indexEditar)
 
-    switch (colocaEditada) {
-      case 'listaTarefasAfazer':
-        console.log('listaTarefasAfazer')
-        listaTarefasAfazer[indexEditar]={
-          titulo: txt,
-          Text: des,
-          status: sta,
-          prazo: da
-        }
-        console.log(listaTarefasAfazer[indexEditar])
-    
-        let tituloAfazer = document.querySelector(`.list_Tasks_ToDo #title-task${indexEditar}`)
-        let ParagrafoAfazer= document.querySelector(`.list_Tasks_ToDo #Paragrafo-task${indexEditar}`)
-        let dataAfazer= document.querySelector(`.list_Tasks_ToDo #task-deadline${indexEditar}`)
-        //let prioridade= document.getElementById(``)
-    
-        tituloAfazer.innerText = listaTarefasAfazer[indexEditar].titulo
-        ParagrafoAfazer.innerText = listaTarefasAfazer[indexEditar].Text
-        dataAfazer.innerText = listaTarefasAfazer[indexEditar].prazo
-        //prioridade.innerText = arr[pos].status
-        break;
+  containerEntries.style.display = "none"
+  editTasksForm.style.display = "none"
+  containerForms.style.display = "none"
+  confirmacaoDeRemocaoDeTask.style.display = "none"
+  body.style.overflow = "scroll"
 
-        case 'listaTarefasEmAndamento':
-          console.log('listaTarefasEmAndamento')
-          listaTarefasEmAndamento[indexEditar]={
-            titulo: txt,
-            Text: des,
-            status: sta,
-            prazo: da
-          }
-          console.log(listaTarefasEmAndamento[indexEditar])
-      
-          let tituloEmAndamento = document.querySelector(`.list_Tasks_In_Progress #title-task${indexEditar}`)
-          let ParagrafoEmAndamento= document.querySelector(`.list_Tasks_In_Progress #Paragrafo-task${indexEditar}`)
-          let dataEmAndamento= document.querySelector(`.list_Tasks_In_Progress #task-deadline${indexEditar}`)
-          //let prioridade= document.querySelector(``)
-          console.log(tituloEmAndamento)
-          tituloEmAndamento.innerText = listaTarefasEmAndamento[indexEditar].titulo
-          ParagrafoEmAndamento.innerText = listaTarefasEmAndamento[indexEditar].Text
-          dataEmAndamento.innerText = listaTarefasEmAndamento[indexEditar].prazo
-          //prioridade.innerText = arr[pos].status
-          break;
+  const { formEditar } = document.forms
 
-          case "listaTarefasConcluido":
-            console.log('listaTarefasConcluido')
-            listaTarefasConcluido[indexEditar]={
-            titulo: txt,
-            Text: des,
-            status: sta,
-            prazo: da
-          }
-            console.log(listaTarefasConcluido[indexEditar])
-        
-            let tituloConcluid = document.querySelector(`.list_Tasks_Completed #title-task${indexEditar}`)
-            let ParagrafoConcluid= document.querySelector(`.list_Tasks_Completed #Paragrafo-task${indexEditar}`)
-            let dataConcluid= document.querySelector(`.list_Tasks_Completed #task-deadline${indexEditar}`)
-            //let prioridade= document.querySelector(``)
-        
-            tituloConcluid.innerText = listaTarefasConcluido[indexEditar].titulo
-            ParagrafoConcluid.innerText = listaTarefasConcluido[indexEditar].Text
-            dataConcluid.innerText = listaTarefasConcluido[indexEditar].prazo
-            //prioridade.innerText = arr[pos].status
-            break;
-            default:
-              console.log(`dados nao encontrados`);
-    }
-    formEditar.editarTitulo.value=''
-    formEditar.editarDescricao.value=''
-    formEditar.editarTerm.value=''
+  let txt = formEditar.editarTitulo.value
+  let des = formEditar.editarDescricao.value
+  let sta = formEditar.editarStatusTask.value
+  let da = formEditar.editarTerm.value
 
-  })
+  switch (colocaEditada) {
+    case 'listaTarefasAfazer':
+      console.log('listaTarefasAfazer')
+      listaTarefasAfazer[indexEditar] = {
+        titulo: txt,
+        Text: des,
+        status: sta,
+        prazo: da
+      }
+      console.log(listaTarefasAfazer[indexEditar])
+
+      let tituloAfazer = document.querySelector(`.list_Tasks_ToDo #title-task${indexEditar}`)
+      let ParagrafoAfazer = document.querySelector(`.list_Tasks_ToDo #Paragrafo-task${indexEditar}`)
+      let dataAfazer = document.querySelector(`.list_Tasks_ToDo #task-deadline${indexEditar}`)
+      //let prioridade= document.getElementById(``)
+
+      tituloAfazer.innerText = listaTarefasAfazer[indexEditar].titulo
+      ParagrafoAfazer.innerText = listaTarefasAfazer[indexEditar].Text
+      dataAfazer.innerText = listaTarefasAfazer[indexEditar].prazo
+      //prioridade.innerText = arr[pos].status
+      break;
+
+    case 'listaTarefasEmAndamento':
+      console.log('listaTarefasEmAndamento')
+      listaTarefasEmAndamento[indexEditar] = {
+        titulo: txt,
+        Text: des,
+        status: sta,
+        prazo: da
+      }
+      console.log(listaTarefasEmAndamento[indexEditar])
+
+      let tituloEmAndamento = document.querySelector(`.list_Tasks_In_Progress #title-task${indexEditar}`)
+      let ParagrafoEmAndamento = document.querySelector(`.list_Tasks_In_Progress #Paragrafo-task${indexEditar}`)
+      let dataEmAndamento = document.querySelector(`.list_Tasks_In_Progress #task-deadline${indexEditar}`)
+      //let prioridade= document.querySelector(``)
+      console.log(tituloEmAndamento)
+      tituloEmAndamento.innerText = listaTarefasEmAndamento[indexEditar].titulo
+      ParagrafoEmAndamento.innerText = listaTarefasEmAndamento[indexEditar].Text
+      dataEmAndamento.innerText = listaTarefasEmAndamento[indexEditar].prazo
+      //prioridade.innerText = arr[pos].status
+      break;
+
+    case "listaTarefasConcluido":
+      console.log('listaTarefasConcluido')
+      listaTarefasConcluido[indexEditar] = {
+        titulo: txt,
+        Text: des,
+        status: sta,
+        prazo: da
+      }
+      console.log(listaTarefasConcluido[indexEditar])
+
+      let tituloConcluid = document.querySelector(`.list_Tasks_Completed #title-task${indexEditar}`)
+      let ParagrafoConcluid = document.querySelector(`.list_Tasks_Completed #Paragrafo-task${indexEditar}`)
+      let dataConcluid = document.querySelector(`.list_Tasks_Completed #task-deadline${indexEditar}`)
+      //let prioridade= document.querySelector(``)
+
+      tituloConcluid.innerText = listaTarefasConcluido[indexEditar].titulo
+      ParagrafoConcluid.innerText = listaTarefasConcluido[indexEditar].Text
+      dataConcluid.innerText = listaTarefasConcluido[indexEditar].prazo
+      //prioridade.innerText = arr[pos].status
+      break;
+    default:
+      console.log(`dados nao encontrados`);
+  }
+  formEditar.editarTitulo.value = ''
+  formEditar.editarDescricao.value = ''
+  formEditar.editarTerm.value = ''
+
+})
 
 
 
@@ -283,7 +291,7 @@ console.log(indexEditar)
 
 function removeTask(lista, arrayTarefas) {
   lista.addEventListener("click", function (event) {
-   // console.log(event.target.classList.contains("remove-button"))
+    // console.log(event.target.classList.contains("remove-button"))
     if (event.target.classList.contains("remove-button")) {
       const botaoExcluir = event.target
       const tarefa = botaoExcluir.closest("li")
@@ -341,4 +349,44 @@ if (usuarioArmazenado) {
   // Exibir o nome do usuário no elemento <h1>
   const tituloUsuario = document.querySelector('.title_Primary');
   tituloUsuario.textContent = `Olá, ${nome}`;
+}
+
+const columns = document.querySelectorAll(".listTasks")
+
+document.addEventListener('dragstart', (e) => {
+  e.target.classList.add('dragging')
+});
+
+
+document.addEventListener('dragend', (e) => {
+  e.target.classList.remove('dragging')
+});
+
+columns.forEach((item) => {
+  item.addEventListener("dragover", (e) => {
+    e.preventDefault()
+
+    const dragging = document.querySelector(".dragging")
+    const applyAfter = getNewPosition(item, e.clientY)
+
+    if (applyAfter) {
+      applyAfter.insertAdjacentElement("afterend", dragging)
+    } else {
+      item.prepend(dragging)
+    }
+  });
+});
+
+function getNewPosition(column, posY) {
+  const cards = column.querySelectorAll(".item:not(.dragging)")
+  let result
+
+  for (let refer_card of cards) {
+    const box = refer_card.getBoundingClientRect()
+    const boxCenterY = box.y + box.height / 2
+
+    if (posY >= boxCenterY) result = refer_card
+  }
+
+  return result
 }
