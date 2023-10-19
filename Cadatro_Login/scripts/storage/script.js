@@ -29,3 +29,11 @@ function armazenarNoLocalStorage(nomeUsuario, senhaUsuario) {
     "success.svg"
   )
 }
+
+
+function handleSubmit(event) {
+  const nome = document.getElementById('nome').value;
+  const senha = document.getElementById('senha').value;
+  // Armazenar no localStorage
+  localStorage.setItem('usuarioLogado', JSON.stringify({ nome, senha }));
+}

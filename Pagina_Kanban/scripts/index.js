@@ -327,3 +327,16 @@ cancelTask.forEach((button) => {
   })
 })
 
+
+
+// Exibir no header Olá, Nome do usuário
+const usuarioArmazenado = localStorage.getItem('usuarioLogado');
+if (usuarioArmazenado) {
+  const { nome, senha } = JSON.parse(usuarioArmazenado);
+  console.log('Nome de Usuário:', nome);
+  console.log('Senha:', senha);
+
+  // Exibir o nome do usuário no elemento <h1>
+  const tituloUsuario = document.querySelector('.title_Primary');
+  tituloUsuario.textContent = `Olá, ${nome}`;
+}
