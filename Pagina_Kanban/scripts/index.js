@@ -161,40 +161,36 @@ function criacaoElementoTarefa(arr) {
   return elementMain
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////
-let teste1
-let teste2
+let colocaEditada
+let indexEditar
 function editar(btn) {
-  
-  
   containerForms.style.display = "flex"
   editTasksForm.style.display = "flex"
   containerEntries.style.display = "none"
   body.style.overflow = "hidden"
-
-  
-
 }
 
 elementoPAITarefaToDo.addEventListener("click", (ttt) => {
-      teste1='listaTarefasAfazer'
-      teste2= ttt.target.value
+      colocaEditada='listaTarefasAfazer'
+      indexEditar= ttt.target.value
 })
 elementoPAITarefaProgress.addEventListener("click", (ttt) => {
-  teste1='listaTarefasEmAndamento'
-  teste2= ttt.target.value
+  colocaEditada='listaTarefasEmAndamento'
+  indexEditar= ttt.target.value
 })
 elementoPAITarefaCompleted.addEventListener("click", (ttt) => {
-  teste1='listaTarefasConcluido'
-  teste2= ttt.target.value
+  colocaEditada='listaTarefasConcluido'
+  indexEditar= ttt.target.value
 })  
   
+
 
   form[1].addEventListener("submit", (event) => {
     event.preventDefault()
    /*  task-item
-    const elementoDesejado = document.querySelector(".task-item #title-task${teste2}"); */
-console.log(teste1)
-console.log(teste2)
+    const elementoDesejado = document.querySelector(".task-item #title-task${indexEditar}"); */
+console.log(colocaEditada)
+console.log(indexEditar)
 
     containerEntries.style.display = "none"
     editTasksForm.style.display = "none"
@@ -209,61 +205,67 @@ console.log(teste2)
     let sta = formEditar.editarStatusTask.value
     let da = formEditar.editarTerm.value
 
-    switch (teste1) {
+    switch (colocaEditada) {
       case 'listaTarefasAfazer':
         console.log('listaTarefasAfazer')
-        listaTarefasAfazer[teste2].titulo = txt
-        listaTarefasAfazer[teste2].Text = des
-        listaTarefasAfazer[teste2].status = sta
-        listaTarefasAfazer[teste2].prazo = da
-        console.log(listaTarefasAfazer[teste2])
+        listaTarefasAfazer[indexEditar]={
+          titulo: txt,
+          Text: des,
+          status: sta,
+          prazo: da
+        }
+        console.log(listaTarefasAfazer[indexEditar])
     
-        let tituloAfazer = document.getElementById(`title-task${teste2}`)
-        let ParagrafoAfazer= document.getElementById(`Paragrafo-task${teste2}`)
-        let dataAfazer= document.getElementById(`task-deadline${teste2}`)
+        let tituloAfazer = document.querySelector(`.list_Tasks_ToDo #title-task${indexEditar}`)
+        let ParagrafoAfazer= document.querySelector(`.list_Tasks_ToDo #Paragrafo-task${indexEditar}`)
+        let dataAfazer= document.querySelector(`.list_Tasks_ToDo #task-deadline${indexEditar}`)
         //let prioridade= document.getElementById(``)
     
-        tituloAfazer.innerText = listaTarefasAfazer[teste2].titulo
-        ParagrafoAfazer.innerText = listaTarefasAfazer[teste2].Text
-        dataAfazer.innerText = listaTarefasAfazer[teste2].prazo
+        tituloAfazer.innerText = listaTarefasAfazer[indexEditar].titulo
+        ParagrafoAfazer.innerText = listaTarefasAfazer[indexEditar].Text
+        dataAfazer.innerText = listaTarefasAfazer[indexEditar].prazo
         //prioridade.innerText = arr[pos].status
         break;
 
         case 'listaTarefasEmAndamento':
           console.log('listaTarefasEmAndamento')
-          listaTarefasEmAndamento[teste2].titulo = txt
-          listaTarefasEmAndamento[teste2].Text = des
-          listaTarefasEmAndamento[teste2].status = sta
-          listaTarefasEmAndamento[teste2].prazo = da
-          console.log(listaTarefasEmAndamento[teste2])
+          listaTarefasEmAndamento[indexEditar]={
+            titulo: txt,
+            Text: des,
+            status: sta,
+            prazo: da
+          }
+          console.log(listaTarefasEmAndamento[indexEditar])
       
-          let tituloEmAndamento = document.getElementById(`title-task${teste2}`)
-          let ParagrafoEmAndamento= document.getElementById(`Paragrafo-task${teste2}`)
-          let dataEmAndamento= document.getElementById(`task-deadline${teste2}`)
-          //let prioridade= document.getElementById(``)
+          let tituloEmAndamento = document.querySelector(`.list_Tasks_In_Progress #title-task${indexEditar}`)
+          let ParagrafoEmAndamento= document.querySelector(`.list_Tasks_In_Progress #Paragrafo-task${indexEditar}`)
+          let dataEmAndamento= document.querySelector(`.list_Tasks_In_Progress #task-deadline${indexEditar}`)
+          //let prioridade= document.querySelector(``)
           console.log(tituloEmAndamento)
-          tituloEmAndamento.innerText = listaTarefasEmAndamento[teste2].titulo
-          ParagrafoEmAndamento.innerText = listaTarefasEmAndamento[teste2].Text
-          dataEmAndamento.innerText = listaTarefasEmAndamento[teste2].prazo
+          tituloEmAndamento.innerText = listaTarefasEmAndamento[indexEditar].titulo
+          ParagrafoEmAndamento.innerText = listaTarefasEmAndamento[indexEditar].Text
+          dataEmAndamento.innerText = listaTarefasEmAndamento[indexEditar].prazo
           //prioridade.innerText = arr[pos].status
           break;
 
           case "listaTarefasConcluido":
             console.log('listaTarefasConcluido')
-            listaTarefasConcluido[teste2].titulo = txt
-            listaTarefasConcluido[teste2].Text = des
-            listaTarefasConcluido[teste2].status = sta
-            listaTarefasConcluido[teste2].prazo = da
-            console.log(listaTarefasConcluido[teste2])
+            listaTarefasConcluido[indexEditar]={
+            titulo: txt,
+            Text: des,
+            status: sta,
+            prazo: da
+          }
+            console.log(listaTarefasConcluido[indexEditar])
         
-            let tituloConcluid = document.getElementById(`title-task${teste2}`)
-            let ParagrafoConcluid= document.getElementById(`Paragrafo-task${teste2}`)
-            let dataConcluid= document.getElementById(`task-deadline${teste2}`)
-            //let prioridade= document.getElementById(``)
+            let tituloConcluid = document.querySelector(`.list_Tasks_Completed #title-task${indexEditar}`)
+            let ParagrafoConcluid= document.querySelector(`.list_Tasks_Completed #Paragrafo-task${indexEditar}`)
+            let dataConcluid= document.querySelector(`.list_Tasks_Completed #task-deadline${indexEditar}`)
+            //let prioridade= document.querySelector(``)
         
-            tituloConcluid.innerText = listaTarefasConcluido[teste2].titulo
-            ParagrafoConcluid.innerText = listaTarefasConcluido[teste2].Text
-            dataConcluid.innerText = listaTarefasConcluido[teste2].prazo
+            tituloConcluid.innerText = listaTarefasConcluido[indexEditar].titulo
+            ParagrafoConcluid.innerText = listaTarefasConcluido[indexEditar].Text
+            dataConcluid.innerText = listaTarefasConcluido[indexEditar].prazo
             //prioridade.innerText = arr[pos].status
             break;
             default:
