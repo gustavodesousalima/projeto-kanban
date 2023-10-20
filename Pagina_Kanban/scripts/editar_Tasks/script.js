@@ -1,11 +1,5 @@
 let colocaEditada
 let indexEditar
-function editar() {
-  containerForms.style.display = "flex"
-  editTasksForm.style.display = "flex"
-  containerEntries.style.display = "none"
-  body.style.overflow = "hidden"
-}
 
 elementoPAITarefaToDo.addEventListener("click", (ttt) => {
   colocaEditada = "listaTarefasAfazer"

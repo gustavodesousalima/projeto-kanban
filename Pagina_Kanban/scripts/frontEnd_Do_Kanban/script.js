@@ -47,3 +47,16 @@ cancelTask.forEach((button) => {
     confirmacaoDeRemocaoDeTask.style.display = "none"
   })
 })
+
+function editar() {
+  containerForms.style.display = "flex"
+  editTasksForm.style.display = "flex"
+  containerEntries.style.display = "none"
+  body.style.overflow = "hidden"
+}
+
+const logout = document.getElementById("logout")
+
+logout.addEventListener('click', ()=> {
+  window.location.href = "../../../Cadastro_Login/index.html"
+})

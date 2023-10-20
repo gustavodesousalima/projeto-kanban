@@ -8,9 +8,11 @@ let elementoPAITarefaProgress = document.querySelector(
 let elementoPAITarefaCompleted = document.querySelector(".list_Tasks_Completed")
 
 //declaraçoes de variaveis
-const listaTarefasAfazer = []
-const listaTarefasEmAndamento = []
-const listaTarefasConcluido = []
+let listaTarefasAfazer = []
+let listaTarefasEmAndamento = []
+let listaTarefasConcluido = []
+
+let idTask = 1
 
 //
 form[0].addEventListener("submit", (event) => {
@@ -38,10 +40,12 @@ form[0].addEventListener("submit", (event) => {
   switch (botaoStatusTarefa) {
     case "btnAfazer":
       listaTarefasAfazer.push({
+        idTask: idTask,
         titulo: formMain.titulo.value,
         Text: formMain.descricao.value,
         status: formMain.statusTask.value,
         prazo: formMain.term.value,
+        proprietario: nomeDoUsuario
       })
       elementoPAITarefaToDo.appendChild(
         criacaoElementoTarefa(listaTarefasAfazer, botaoStatusTarefa)
@@ -50,10 +54,12 @@ form[0].addEventListener("submit", (event) => {
 
     case "btnEmAndamento":
       listaTarefasEmAndamento.push({
+        idTask: idTask,
         titulo: formMain.titulo.value,
         Text: formMain.descricao.value,
         status: formMain.statusTask.value,
         prazo: formMain.term.value,
+        proprietario: nomeDoUsuario,
       })
       elementoPAITarefaProgress.appendChild(
         criacaoElementoTarefa(listaTarefasEmAndamento, botaoStatusTarefa)
@@ -61,10 +67,12 @@ form[0].addEventListener("submit", (event) => {
       break
     case "btnConcluido":
       listaTarefasConcluido.push({
+        idTask: idTask,
         titulo: formMain.titulo.value,
         Text: formMain.descricao.value,
         status: formMain.statusTask.value,
         prazo: formMain.term.value,
+        proprietario: nomeDoUsuario,
       })
       elementoPAITarefaCompleted.appendChild(
         criacaoElementoTarefa(listaTarefasConcluido, botaoStatusTarefa)
@@ -74,4 +82,6 @@ form[0].addEventListener("submit", (event) => {
   formMain.titulo.value = ""
   formMain.descricao.value = ""
   formMain.term.value = ""
+  salvarDadosNoLocalStorage()
+  idTask++
 })
