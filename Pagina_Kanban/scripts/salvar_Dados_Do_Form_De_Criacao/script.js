@@ -15,7 +15,7 @@ let listaTarefasConcluido = []
 let idTask = parseInt(localStorage.getItem("lastTaskId")) || 1
 
 //
-form[0].addEventListener("submit", () => {
+form[0].addEventListener("submit", (event) => {
   const { formMain } = document.forms
   const titulo = formMain.titulo.value.trim() // Remove espaços em branco do início e do fim
   const descricao = formMain.descricao.value.trim()
@@ -24,17 +24,12 @@ form[0].addEventListener("submit", () => {
   if (!titulo || !descricao || !prazo) {
     // Exibe uma mensagem de erro ao usuário (você pode personalizar isso)
     alert("Por favor, preencha todos os campos obrigatórios.")
-
-    // Não continue com a adição da tarefa
+    event.preventDefault()
     return
   }
 
   // Todos os elementos devem receber display none aqui também pq se n eles vão ficar aparecendo dps de submitar
-  containerEntries.style.display = "none"
-  editTasksForm.style.display = "none"
-  containerForms.style.display = "none"
-  confirmacaoDeRemocaoDeTask.style.display = "none"
-  body.style.overflow = "scroll"
+  
 
   switch (botaoStatusTarefa) {
     case "btnAfazer":
@@ -69,9 +64,6 @@ form[0].addEventListener("submit", () => {
       })
       break
   }
-  formMain.titulo.value = ""
-  formMain.descricao.value = ""
-  formMain.term.value = ""
   salvarDadosNoLocalStorage()
   idTask++
   localStorage.setItem("lastTaskId", idTask)

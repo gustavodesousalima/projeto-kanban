@@ -19,50 +19,6 @@ h2 {
   word-wrap: break-word;
 }
 
-.animacaoLoading {
-  width: 100vw;
-  height: 100vh;
-  background-color: white;
-  position: absolute;
-  z-index: 3;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-.animacaoLoading::after {
-  content: "Kanban";
-  font-family: "Montserrat", sans-serif;
-  color: rgb(223, 220, 216);
-  text-shadow: -0.47rem -0.1rem 0 #000, 0.1rem -0.1rem 0 #000,
-    -0.1rem 0.1rem 0 #000, 0.1rem 0.1rem 0 #000;
-  letter-spacing: 0.2rem;
-  font-size: 4rem;
-  animation: animacaoLoading 3s ease-in-out infinite;
-}
-
-.animacaoLoading::before {
-  content: "";
-  background-image: url(../assets/logoTipos/kanbanHub.svg);
-  width: 4rem;
-  height: 4rem;
-  background-size: cover;
-  animation: animacaoLoading 3s ease-in-out infinite;
-}
-
-@keyframes animacaoLoading {
-  0% {
-    transform: translateY(0%);
-  }
-  50% {
-    transform: translateY(20%);
-  }
-  100% {
-    transform: translate(0%);
-  }
-}
-
 @keyframes animacaoSurgir {
   0% {
     opacity: 0;
@@ -71,10 +27,6 @@ h2 {
   100% {
     opacity: 1;
   }
-}
-
-#containerAllTasks {
-  animation: animacaoSurgir 1.5s;
 }
 
 .nav_Bar {
@@ -86,6 +38,7 @@ h2 {
   background-color: black;
   min-height: 3.5rem;
   width: 100%;
+  animation: animacaoSurgir 1s;
 }
 
 #logout {
@@ -160,11 +113,11 @@ h2 {
 .container {
   background-color: transparent;
   display: flex;
-  /* flex-direction: column; quando for fazer o media query, usar esse style para mudar a direção do container das tasks */
   height: 82vh;
   border-radius: 1vh;
   gap: 6vh;
   margin: 4vh;
+  animation: animacaoSurgir 1s;
 }
 
 .containerTasks {

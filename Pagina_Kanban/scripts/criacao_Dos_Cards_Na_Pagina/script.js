@@ -41,7 +41,8 @@ function criacaoElementoTarefa(arr, idTask) {
 
   let btnRemover = document.createElement("button")
   btnRemover.setAttribute("class", "remove-button")
-  btnRemover.setAttribute("onclick", `excluir()`)
+  btnEditar.setAttribute("data-taskid", idTask)
+  btnRemover.setAttribute("onclick", `excluir(${idTask})`)
 
   let btnModal = document.createElement("button")
   btnModal.setAttribute("class", "modal-button")

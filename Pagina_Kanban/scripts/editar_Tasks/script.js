@@ -34,6 +34,8 @@ form[1].addEventListener("submit", (event) => {
 
   if (!txt || !des || !da) {
     alert("Por favor, preencha todos os campos obrigatórios.")
+    event.preventDefault()
+    return
   } else {
     // Obtém o ID da tarefa a ser editada
     

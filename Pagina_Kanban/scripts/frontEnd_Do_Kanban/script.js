@@ -1,10 +1,3 @@
-const main = document.getElementById("containerAllTasks")
-main.style.display = "none"
-
-setTimeout(() => {
-  main.style.display = "flex"
-}, 1500)
-
 const [btnAfazer, btnEmAndamento, btnConcluido] =
   document.querySelectorAll(".buttonAddTask")
 
@@ -56,6 +49,18 @@ function editar(IdTask) {
   const idDaTask = document.getElementById("editarTask")
   idDaTask.setAttribute("idTask", IdTask)
 }
+
+
+function excluir(IdTask) {
+  body.style.overflow = "hidden"
+  containerForms.style.display = "flex"
+  confirmacaoDeRemocaoDeTask.style.display = "block"
+  const removerTask = document.getElementById("removerTask")
+  removerTask.setAttribute("idTask", IdTask)
+}
+
+
+
 
 const logout = document.getElementById("logout")
 
