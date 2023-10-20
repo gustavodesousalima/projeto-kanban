@@ -50,13 +50,25 @@ const listaTarefasConcluido = []
 //
 form[0].addEventListener("submit", (event) => {
   event.preventDefault()
+  const { formMain } = document.forms
+  const titulo = formMain.titulo.value.trim() // Remove espaços em branco do início e do fim
+  const descricao = formMain.descricao.value.trim()
+  const prazo = formMain.term.value.trim()
+
+  if (!titulo || !descricao || !prazo) {
+    // Exibe uma mensagem de erro ao usuário (você pode personalizar isso)
+    alert("Por favor, preencha todos os campos obrigatórios.")
+
+    // Não continue com a adição da tarefa
+    return
+  }
+
   // Todos os elementos devem receber display none aqui também pq se n eles vão ficar aparecendo dps de submitar
   containerEntries.style.display = "none"
   editTasksForm.style.display = "none"
   containerForms.style.display = "none"
   confirmacaoDeRemocaoDeTask.style.display = "none"
   body.style.overflow = "scroll"
-  const { formMain } = document.forms
 
   switch (botaoStatusTarefa) {
     case "btnAfazer":
@@ -200,18 +212,26 @@ form[1].addEventListener("submit", (event) => {
   console.log(colocaEditada)
   console.log(indexEditar)
 
+  const { formEditar } = document.forms
+  const txt = formEditar.editarTitulo.value.trim() // Remove espaços em branco do início e do fim
+  const des = formEditar.editarDescricao.value.trim()
+  const sta = formEditar.editarStatusTask.value
+  const da = formEditar.editarTerm.value.trim()
+
+  // Verifica se algum dos campos obrigatórios está vazio ou contém apenas espaços em branco
+  if (!txt || !des || !da) {
+    // Exibe uma mensagem de erro ao usuário (você pode personalizar isso)
+    alert("Por favor, preencha todos os campos obrigatórios.")
+
+    // Não continue com a edição da tarefa
+    return
+  }
+
   containerEntries.style.display = "none"
   editTasksForm.style.display = "none"
   containerForms.style.display = "none"
   confirmacaoDeRemocaoDeTask.style.display = "none"
   body.style.overflow = "scroll"
-
-  const { formEditar } = document.forms
-
-  let txt = formEditar.editarTitulo.value
-  let des = formEditar.editarDescricao.value
-  let sta = formEditar.editarStatusTask.value
-  let da = formEditar.editarTerm.value
 
   switch (colocaEditada) {
     case 'listaTarefasAfazer':
@@ -303,6 +323,7 @@ function removeTask(lista, arrayTarefas) {
           tarefa.remove()
           containerForms.style.display = "none"
           confirmacaoDeRemocaoDeTask.style.display = "none"
+          body.style.overflow = "scroll"
         })
       }
     }
