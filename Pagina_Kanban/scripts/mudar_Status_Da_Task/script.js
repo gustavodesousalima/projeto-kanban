@@ -12,6 +12,7 @@ document.addEventListener("dragstart", (e) => {
     const index = array.findIndex((item) => item.titulo === valor)
     if (index !== -1) {
       array.splice(index, 1)
+      salvarDadosNoLocalStorage()
       console.log(`Elemento removido do array: ${JSON.stringify(array)}`)
     } else {
       console.log("Elemento não encontrado no array")
@@ -77,7 +78,7 @@ document.addEventListener("dragend", (e) => {
     listaTarefasConcluido.push(objetoEncontrado)
     console.log(listaTarefasConcluido)
   }
-
+  salvarDadosNoLocalStorage()
   objetoEncontrado = null
 })
 
