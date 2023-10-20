@@ -20,13 +20,21 @@ form[0].addEventListener("submit", (event) => {
   const titulo = formMain.titulo.value.trim() // Remove espaços em branco do início e do fim
   const descricao = formMain.descricao.value.trim()
   const prazo = formMain.term.value.trim()
+  const dataAtual = new Date()
+  const dataAtualFormatada = dataAtual.toISOString().split("T")[0]
 
-  if (!titulo || !descricao || !prazo) {
-    // Exibe uma mensagem de erro ao usuário (você pode personalizar isso)
-    alert("Por favor, preencha todos os campos obrigatórios.")
-    event.preventDefault()
-    return
-  }
+
+ if (!titulo || !descricao || !prazo || prazo < dataAtualFormatada) {
+   // Exibe uma mensagem de erro ao usuário (você pode personalizar isso)
+   if (!titulo || !descricao || !prazo) {
+     alert("Por favor, preencha todos os campos obrigatórios.")
+   } else {
+     alert("A data de prazo deve ser igual ou posterior à data atual.")
+   }
+
+   event.preventDefault()
+   return
+ }
   // Todos os elementos devem receber display none aqui também pq se n eles vão ficar aparecendo dps de submitar
   
 

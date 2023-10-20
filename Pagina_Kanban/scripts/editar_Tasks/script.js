@@ -24,6 +24,8 @@ form[1].addEventListener("submit", (event) => {
   const des = formEditar.editarDescricao.value.trim()
   const sta = formEditar.editarStatusTask.value
   const da = formEditar.editarTerm.value.trim()
+  const dataAtual = new Date()
+  const dataAtualFormatada = dataAtual.toISOString().split("T")[0]
 
   const editarTask = document.getElementById("editarTask")
   console.log(editarTask)
@@ -32,43 +34,46 @@ form[1].addEventListener("submit", (event) => {
   console.log(idEditar)
   console.log(colocaEditada)
 
-  if (!txt || !des || !da) {
-    alert("Por favor, preencha todos os campos obrigatórios.")
+  if (!txt || !des || !da || da < dataAtualFormatada) {
+    // Exibe uma mensagem de erro ao usuário (você pode personalizar isso)
+    if (!txt || !des || !da) {
+      alert("Por favor, preencha todos os campos obrigatórios.")
+    } else {
+      alert("A data de prazo deve ser igual ou posterior à data atual.")
+    }
+
     event.preventDefault()
     return
-  } else {
-    // Obtém o ID da tarefa a ser editada
-    
-    
-    // Verifica em qual lista a tarefa está e chama a função de edição apropriada
-    switch (colocaEditada) {
-      case "listaTarefasAfazer":
-        editarTarefa(idEditar, listaTarefasAfazer, txt, des, sta, da)
-        break
-
-      case "listaTarefasEmAndamento":
-        editarTarefa(idEditar, listaTarefasEmAndamento, txt, des, sta, da)
-        break
-
-      case "listaTarefasConcluido":
-        editarTarefa(idEditar, listaTarefasConcluido, txt, des, sta, da)
-        break
-
-      default:
-        console.log(`Dados não encontrados`)
-    }
-    
-    // Limpa os campos de edição
-    formEditar.editarTitulo.value = ""
-    formEditar.editarDescricao.value = ""
-    formEditar.editarTerm.value = ""
-
-    // Salve as listas de tarefas atualizadas no localStorage
-    salvarDadosNoLocalStorage()
-    
   }
-})
 
+  // Obtém o ID da tarefa a ser editada
+
+  // Verifica em qual lista a tarefa está e chama a função de edição apropriada
+  switch (colocaEditada) {
+    case "listaTarefasAfazer":
+      editarTarefa(idEditar, listaTarefasAfazer, txt, des, sta, da)
+      break
+
+    case "listaTarefasEmAndamento":
+      editarTarefa(idEditar, listaTarefasEmAndamento, txt, des, sta, da)
+      break
+
+    case "listaTarefasConcluido":
+      editarTarefa(idEditar, listaTarefasConcluido, txt, des, sta, da)
+      break
+
+    default:
+      console.log(`Dados não encontrados`)
+  }
+
+  // Limpa os campos de edição
+  formEditar.editarTitulo.value = ""
+  formEditar.editarDescricao.value = ""
+  formEditar.editarTerm.value = ""
+
+  // Salve as listas de tarefas atualizadas no localStorage
+  salvarDadosNoLocalStorage()
+})
 
 function encontrarListaDaTarefa(idTarefa) {
   // Verifica se a tarefa está em "listaTarefasAfazer"
