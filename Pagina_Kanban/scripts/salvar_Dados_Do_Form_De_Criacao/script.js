@@ -27,7 +27,6 @@ form[0].addEventListener("submit", (event) => {
     event.preventDefault()
     return
   }
-
   // Todos os elementos devem receber display none aqui também pq se n eles vão ficar aparecendo dps de submitar
   
 
