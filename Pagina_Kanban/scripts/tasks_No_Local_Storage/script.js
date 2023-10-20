@@ -28,72 +28,91 @@ function exibirTarefasDoLocalStorage(usuarioLogado) {
   )
 
   tarefasAfazerUsuario.sort((a, b) => {
-    if (a.status == 'alta' && b.status !== 'alta') {
+    if (a.status === "alta" && b.status !== "alta") {
       return -1
-    } else if (a.status != 'alta' && b.status == 'alta') {
+    } else if (a.status !== "alta" && b.status === "alta") {
       return 1
-    } else if (a.status == 'media' && b.status == 'baixa') {
+    } else if (a.status === "media" && b.status === "baixa") {
       return -1
-    } else if (a.status == 'baixa' && b.status == 'media') {
+    } else if (a.status === "baixa" && b.status === "media") {
       return 1
     }
     return 0
   })
 
-  tarefasAfazerUsuario.forEach((tarefa, index) => {
-    // Passa o ID da tarefa como parâmetro
-    const elementoTarefa = criacaoElementoTarefa([tarefa], tarefa.idTask)
-    elementoPAITarefaToDo.appendChild(elementoTarefa)
-  })
+  if (tarefasAfazerUsuario.length === 0) {
+    const mensagemSemTarefas = document.createElement("p")
+    mensagemSemTarefas.textContent = "Você não tem tarefas a fazer."
+    elementoPAITarefaToDo.appendChild(mensagemSemTarefas)
+  } else {
+    tarefasAfazerUsuario.forEach((tarefa) => {
+      // Passa o ID da tarefa como parâmetro
+      const elementoTarefa = criacaoElementoTarefa([tarefa], tarefa.idTask)
+      elementoPAITarefaToDo.appendChild(elementoTarefa)
+    })
+  }
 
   // Exibir tarefas da listaTarefasEmAndamento do usuário logado
   const tarefasEmAndamentoUsuario = listaTarefasEmAndamento.filter(
     (tarefa) => tarefa.proprietario === usuarioLogado
   )
 
-  tarefasAfazerUsuario.sort((a, b) => {
-    if (a.status == 'alta' && b.status !== 'alta') {
+  tarefasEmAndamentoUsuario.sort((a, b) => {
+    if (a.status === "alta" && b.status !== "alta") {
       return -1
-    } else if (a.status != 'alta' && b.status == 'alta') {
+    } else if (a.status !== "alta" && b.status === "alta") {
       return 1
-    } else if (a.status == 'media' && b.status == 'baixa') {
+    } else if (a.status === "media" && b.status === "baixa") {
       return -1
-    } else if (a.status == 'baixa' && b.status == 'media') {
+    } else if (a.status === "baixa" && b.status === "media") {
       return 1
     }
     return 0
   })
 
-  tarefasEmAndamentoUsuario.forEach((tarefa, index) => {
-    // Passa o ID da tarefa como parâmetro
-    const elementoTarefa = criacaoElementoTarefa([tarefa], tarefa.idTask)
-    elementoPAITarefaProgress.appendChild(elementoTarefa)
-  })
+  if (tarefasEmAndamentoUsuario.length === 0) {
+    const mensagemSemTarefas = document.createElement("p")
+    mensagemSemTarefas.textContent = "Você não tem tarefas em andamento."
+    elementoPAITarefaProgress.appendChild(mensagemSemTarefas)
+  } else {
+    tarefasEmAndamentoUsuario.forEach((tarefa) => {
+      // Passa o ID da tarefa como parâmetro
+      const elementoTarefa = criacaoElementoTarefa([tarefa], tarefa.idTask)
+      elementoPAITarefaProgress.appendChild(elementoTarefa)
+    })
+  }
 
   // Exibir tarefas da listaTarefasConcluido do usuário logado
   const tarefasConcluidoUsuario = listaTarefasConcluido.filter(
     (tarefa) => tarefa.proprietario === usuarioLogado
   )
 
-  tarefasAfazerUsuario.sort((a, b) => {
-    if (a.status == 'alta' && b.status !== 'alta') {
+  tarefasConcluidoUsuario.sort((a, b) => {
+    if (a.status === "alta" && b.status !== "alta") {
       return -1
-    } else if (a.status != 'alta' && b.status == 'alta') {
+    } else if (a.status !== "alta" && b.status === "alta") {
       return 1
-    } else if (a.status == 'media' && b.status == 'baixa') {
+    } else if (a.status === "media" && b.status === "baixa") {
       return -1
-    } else if (a.status == 'baixa' && b.status == 'media') {
+    } else if (a.status === "baixa" && b.status === "media") {
       return 1
     }
     return 0
   })
 
-  tarefasConcluidoUsuario.forEach((tarefa, index) => {
-    // Passa o ID da tarefa como parâmetro
-    const elementoTarefa = criacaoElementoTarefa([tarefa], tarefa.idTask)
-    elementoPAITarefaCompleted.appendChild(elementoTarefa)
-  })
+  if (tarefasConcluidoUsuario.length === 0) {
+    const mensagemSemTarefas = document.createElement("p")
+    mensagemSemTarefas.textContent = "Você não tem tarefas concluídas."
+    elementoPAITarefaCompleted.appendChild(mensagemSemTarefas)
+  } else {
+    tarefasConcluidoUsuario.forEach((tarefa) => {
+      // Passa o ID da tarefa como parâmetro
+      const elementoTarefa = criacaoElementoTarefa([tarefa], tarefa.idTask)
+      elementoPAITarefaCompleted.appendChild(elementoTarefa)
+    })
+  }
 }
+
 
 
 

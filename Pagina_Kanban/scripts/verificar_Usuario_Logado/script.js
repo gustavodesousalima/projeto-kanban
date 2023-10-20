@@ -13,7 +13,7 @@ if (usuarioArmazenado) {
 
     // Exibir o nome do usuário no elemento <h1>
     const tituloUsuario = document.querySelector(".title_Primary")
-    tituloUsuario.textContent = `Olá, ${nome}`
+    tituloUsuario.textContent = `Olá ${nome}, seja bem vindo!`
   } else {
     // Lidar com o caso em que o nome do usuário não está definido
   }

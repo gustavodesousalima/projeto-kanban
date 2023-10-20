@@ -14,6 +14,10 @@
         width: 100%;
     }
 
+    .title_Primary {
+        font-size: 1.3rem;
+    }
+
     #confirmacaoDeRemocaoDeTask {
     width: 20rem;
     background-color: white;

@@ -78,7 +78,7 @@ h2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1vh;
+  padding: 0 1vh;
 }
 
 .subtitle {
@@ -153,17 +153,24 @@ h2 {
   position: relative;
   overflow-x: hidden;
   padding: 0 1rem;
+  gap: 1rem;
+}
+
+.listTasks > p {
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  margin-left: 2rem;
 }
 
 .task-item {
   list-style: none;
   font-family: "Poppins", sans-serif;
-  margin: 2vh;
   padding: 10px;
   box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.212);
   border-radius: 5px;
   color: rgb(27, 26, 26);
-  background-color: rgba(236, 233, 228, 0.747);
+  background-color: rgb(236, 233, 228);
   position: relative;
   width: 100%;
   text-align: justify;
@@ -270,7 +277,7 @@ h2 {
   align-items: center;
   background-color: rgba(0, 0, 0, 0.548);
   z-index: 1;
-  margin-top: -10vh;
+  margin-top: -11vh;
 }
 
 #containerEntries {
@@ -333,7 +340,7 @@ h2 {
 }
 
 .statusTask {
-  width: 45%;
+  width: 32.5%;
   padding: 0.5rem 0.5rem;
   border-radius: 0.4rem;
   background-color: black;
@@ -347,7 +354,7 @@ h2 {
   background-color: rgba(255, 255, 255, 0);
   outline: none;
   border: none;
-  width: 40%;
+  width: 45%;
   border-bottom: 2px solid rgb(24, 199, 97);
   margin-bottom: 1rem;
 }
