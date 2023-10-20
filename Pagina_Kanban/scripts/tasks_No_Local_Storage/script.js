@@ -26,6 +26,20 @@ function exibirTarefasDoLocalStorage(usuarioLogado) {
   const tarefasAfazerUsuario = listaTarefasAfazer.filter(
     (tarefa) => tarefa.proprietario === usuarioLogado
   )
+
+  tarefasAfazerUsuario.sort((a, b) => {
+    if (a.status == 'alta' && b.status !== 'alta') {
+      return -1
+    } else if (a.status != 'alta' && b.status == 'alta') {
+      return 1
+    } else if (a.status == 'media' && b.status == 'baixa') {
+      return -1
+    } else if (a.status == 'baixa' && b.status == 'media') {
+      return 1
+    }
+    return 0
+  })
+
   tarefasAfazerUsuario.forEach((tarefa, index) => {
     // Passa o ID da tarefa como parâmetro
     const elementoTarefa = criacaoElementoTarefa([tarefa], tarefa.idTask)
@@ -36,6 +50,20 @@ function exibirTarefasDoLocalStorage(usuarioLogado) {
   const tarefasEmAndamentoUsuario = listaTarefasEmAndamento.filter(
     (tarefa) => tarefa.proprietario === usuarioLogado
   )
+
+  tarefasAfazerUsuario.sort((a, b) => {
+    if (a.status == 'alta' && b.status !== 'alta') {
+      return -1
+    } else if (a.status != 'alta' && b.status == 'alta') {
+      return 1
+    } else if (a.status == 'media' && b.status == 'baixa') {
+      return -1
+    } else if (a.status == 'baixa' && b.status == 'media') {
+      return 1
+    }
+    return 0
+  })
+
   tarefasEmAndamentoUsuario.forEach((tarefa, index) => {
     // Passa o ID da tarefa como parâmetro
     const elementoTarefa = criacaoElementoTarefa([tarefa], tarefa.idTask)
@@ -46,6 +74,20 @@ function exibirTarefasDoLocalStorage(usuarioLogado) {
   const tarefasConcluidoUsuario = listaTarefasConcluido.filter(
     (tarefa) => tarefa.proprietario === usuarioLogado
   )
+
+  tarefasAfazerUsuario.sort((a, b) => {
+    if (a.status == 'alta' && b.status !== 'alta') {
+      return -1
+    } else if (a.status != 'alta' && b.status == 'alta') {
+      return 1
+    } else if (a.status == 'media' && b.status == 'baixa') {
+      return -1
+    } else if (a.status == 'baixa' && b.status == 'media') {
+      return 1
+    }
+    return 0
+  })
+
   tarefasConcluidoUsuario.forEach((tarefa, index) => {
     // Passa o ID da tarefa como parâmetro
     const elementoTarefa = criacaoElementoTarefa([tarefa], tarefa.idTask)
