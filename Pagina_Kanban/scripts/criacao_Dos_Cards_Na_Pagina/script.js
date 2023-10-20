@@ -1,6 +1,6 @@
 let contador = 0
 
-function criacaoElementoTarefa(arr) {
+function criacaoElementoTarefa(arr, idTask) {
   contador += 1
   console.log(contador)
 
@@ -36,7 +36,8 @@ function criacaoElementoTarefa(arr) {
   let btnEditar = document.createElement("button")
   btnEditar.setAttribute("class", "edit-button")
   btnEditar.setAttribute("value", arr.length - 1)
-  btnEditar.setAttribute("onclick", `editar()`)
+  btnEditar.setAttribute("data-taskid", idTask)
+  btnEditar.setAttribute("onclick", `editar(${idTask})`)
 
   let btnRemover = document.createElement("button")
   btnRemover.setAttribute("class", "remove-button")

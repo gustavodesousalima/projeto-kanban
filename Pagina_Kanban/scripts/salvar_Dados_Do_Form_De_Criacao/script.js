@@ -12,11 +12,10 @@ let listaTarefasAfazer = []
 let listaTarefasEmAndamento = []
 let listaTarefasConcluido = []
 
-let idTask = 1
+let idTask = parseInt(localStorage.getItem("lastTaskId")) || 1
 
 //
-form[0].addEventListener("submit", (event) => {
-  event.preventDefault()
+form[0].addEventListener("submit", () => {
   const { formMain } = document.forms
   const titulo = formMain.titulo.value.trim() // Remove espaços em branco do início e do fim
   const descricao = formMain.descricao.value.trim()
@@ -47,9 +46,6 @@ form[0].addEventListener("submit", (event) => {
         prazo: formMain.term.value,
         proprietario: nomeDoUsuario
       })
-      elementoPAITarefaToDo.appendChild(
-        criacaoElementoTarefa(listaTarefasAfazer, botaoStatusTarefa)
-      )
       break
 
     case "btnEmAndamento":
@@ -61,9 +57,6 @@ form[0].addEventListener("submit", (event) => {
         prazo: formMain.term.value,
         proprietario: nomeDoUsuario,
       })
-      elementoPAITarefaProgress.appendChild(
-        criacaoElementoTarefa(listaTarefasEmAndamento, botaoStatusTarefa)
-      )
       break
     case "btnConcluido":
       listaTarefasConcluido.push({
@@ -74,9 +67,6 @@ form[0].addEventListener("submit", (event) => {
         prazo: formMain.term.value,
         proprietario: nomeDoUsuario,
       })
-      elementoPAITarefaCompleted.appendChild(
-        criacaoElementoTarefa(listaTarefasConcluido, botaoStatusTarefa)
-      )
       break
   }
   formMain.titulo.value = ""
@@ -84,4 +74,5 @@ form[0].addEventListener("submit", (event) => {
   formMain.term.value = ""
   salvarDadosNoLocalStorage()
   idTask++
+  localStorage.setItem("lastTaskId", idTask)
 })

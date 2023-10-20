@@ -48,11 +48,13 @@ cancelTask.forEach((button) => {
   })
 })
 
-function editar() {
+function editar(IdTask) {
   containerForms.style.display = "flex"
   editTasksForm.style.display = "flex"
   containerEntries.style.display = "none"
   body.style.overflow = "hidden"
+  const idDaTask = document.getElementById("editarTask")
+  idDaTask.setAttribute("idTask", IdTask)
 }
 
 const logout = document.getElementById("logout")

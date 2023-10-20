@@ -27,7 +27,8 @@ function exibirTarefasDoLocalStorage(usuarioLogado) {
     (tarefa) => tarefa.proprietario === usuarioLogado
   )
   tarefasAfazerUsuario.forEach((tarefa, index) => {
-    const elementoTarefa = criacaoElementoTarefa([tarefa])
+    // Passa o ID da tarefa como parâmetro
+    const elementoTarefa = criacaoElementoTarefa([tarefa], tarefa.idTask)
     elementoPAITarefaToDo.appendChild(elementoTarefa)
   })
 
@@ -36,7 +37,8 @@ function exibirTarefasDoLocalStorage(usuarioLogado) {
     (tarefa) => tarefa.proprietario === usuarioLogado
   )
   tarefasEmAndamentoUsuario.forEach((tarefa, index) => {
-    const elementoTarefa = criacaoElementoTarefa([tarefa])
+    // Passa o ID da tarefa como parâmetro
+    const elementoTarefa = criacaoElementoTarefa([tarefa], tarefa.idTask)
     elementoPAITarefaProgress.appendChild(elementoTarefa)
   })
 
@@ -45,10 +47,12 @@ function exibirTarefasDoLocalStorage(usuarioLogado) {
     (tarefa) => tarefa.proprietario === usuarioLogado
   )
   tarefasConcluidoUsuario.forEach((tarefa, index) => {
-    const elementoTarefa = criacaoElementoTarefa([tarefa])
+    // Passa o ID da tarefa como parâmetro
+    const elementoTarefa = criacaoElementoTarefa([tarefa], tarefa.idTask)
     elementoPAITarefaCompleted.appendChild(elementoTarefa)
   })
 }
+
 
 
 carregarDadosDoLocalStorage()
