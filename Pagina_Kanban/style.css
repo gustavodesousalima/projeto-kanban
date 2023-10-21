@@ -173,7 +173,6 @@ h2 {
   background-color: rgb(236, 233, 228);
   position: relative;
   width: 100%;
-  text-align: justify;
 }
 
 .task-item:nth-child(odd) {
@@ -192,6 +191,7 @@ h2 {
 
 .task-details {
   padding: 0.5vh;
+  text-align: justify;
 }
 
 .task-description {
