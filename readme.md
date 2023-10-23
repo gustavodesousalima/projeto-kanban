@@ -7,7 +7,11 @@ Sistema completo de gerenciamento de tarefas. Feito especialmente para satisfaze
 <br>
 
 <p align="center">
-  <img alt="projeto Portfolio" src="./.github/telaPrincipal.png" width="100%">
+  <img alt="projeto Portfolio" src="./.github/loginScreen.png" width="100%">
+</p>
+
+<p align="center">
+  <img alt="projeto Portfolio" src="./.github/board.png" width="100%">
 </p>
 
 ## 🚀 Tecnologias
